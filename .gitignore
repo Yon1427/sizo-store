@@ -14,6 +14,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Agent tooling (local worktrees and manager state)
+.kilo/
+.kilocode/
+
 # Design specs and implementation plans live in the sizo-backend repo under
 # docs/front-end/. Built artifacts (assets/css/tailwind.css, sitemap.xml) are
 # committed intentionally, so there is nothing to ignore here.
