@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details | SIZO Digital Store</title>
+  <meta name="description" content="View your SIZO order details, payment status, and delivered digital products.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <!-- Shared Design System -->
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto max-w-7xl px-4 pb-16 pt-28">
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+      <div data-anim="fade-up">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-i18n="order_center">Order Center</p>
+        <h1 id="order-detail-heading" class="mt-2 font-display text-4xl font-black text-[var(--text-primary)]" data-i18n="order_details_title">ORDER DETAILS</h1>
+      </div>
+      <div class="flex flex-wrap gap-3" data-anim="slide-left" data-anim-delay="1">
+        <a id="order-detail-back" href="profile.html?tab=orders" class="btn-cyber border px-4 py-2 font-display text-sm font-bold text-[var(--text-primary)] border-[var(--border)]" data-i18n="btn_back_to_orders">BACK TO ORDERS</a>
+        <button id="order-detail-download-action" type="button" class="btn-cyber hidden border border-cyan/40 px-4 py-2 font-display text-sm font-bold text-cyan" data-i18n="btn_download_keys">DOWNLOAD KEYS</button>
+        <a id="order-detail-primary-action" href="browse.html" class="btn-cyber bg-cyan px-4 py-2 font-display text-sm font-bold text-void" data-i18n="btn_continue_shopping">CONTINUE SHOPPING</a>
+      </div>
+    </div>
+
+    <section class="mb-8 grid gap-6 xl:grid-cols-[1.4fr_1fr]">
+      <article class="border bg-[var(--surface)] p-6 dark:bg-[var(--surface)] border-[var(--border)]">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p class="font-mono text-sm text-cyan" id="order-number">#ORDER</p>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <span id="order-status-badge" class="rounded bg-cyan/15 px-3 py-1 font-mono text-xs text-cyan" data-i18n="status_pending">PENDING</span>
+              <span id="payment-status-badge" class="rounded bg-gold/15 px-3 py-1 font-mono text-xs text-gold" data-i18n="status_pending">PENDING</span>
+            </div>
+            <p id="order-meta" class="mt-3 text-[var(--muted)]" data-i18n="loading_order_meta">Loading order metadata...</p>
+          </div>
+          <div class="text-right">
+            <p class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--muted)]" data-i18n="label_total">Total</p>
+            <p id="order-total" class="mt-2 font-display text-4xl font-black text-[var(--text-primary)]">0.00 DZD</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="border bg-[var(--surface)] p-6 dark:bg-[var(--surface)] border-[var(--border)]">
+        <h2 class="font-display text-xl font-bold text-[var(--text-primary)]" data-i18n="section_delivery_snapshot">Delivery Snapshot</h2>
+        <div class="mt-5 grid gap-4 sm:grid-cols-3">
+          <div class="border p-4 text-center bg-[var(--bg)] border-[var(--border)]">
+            <p class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--muted)]" data-i18n="status_delivered">Delivered</p>
+            <p id="delivery-delivered-count" class="mt-2 font-display text-3xl font-black text-success">0</p>
+          </div>
+          <div class="border p-4 text-center bg-[var(--bg)] border-[var(--border)]">
+            <p class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--muted)]" data-i18n="status_reserved">Reserved</p>
+            <p id="delivery-reserved-count" class="mt-2 font-display text-3xl font-black text-gold">0</p>
+          </div>
+          <div class="border p-4 text-center bg-[var(--bg)] border-[var(--border)]">
+            <p class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--muted)]" data-i18n="status_pending">Pending</p>
+            <p id="delivery-pending-count" class="mt-2 font-display text-3xl font-black text-cyan">0</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid gap-6 xl:grid-cols-[1.45fr_1fr]">
+      <div class="space-y-6">
+        <article class="border bg-[var(--surface)] p-6 dark:bg-[var(--surface)] border-[var(--border)]">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="font-display text-2xl font-bold text-[var(--text-primary)]" data-i18n="section_items_keys">Items & Keys</h2>
+            <span id="order-item-count" class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--muted)]" data-i18n="order_items_count">0 items</span>
+          </div>
+          <div id="order-items" class="mt-6 space-y-4"></div>
+        </article>
+      </div>
+
+      <div class="space-y-6">
+        <article id="order-reveal-card" class="hidden border border-cyan/30 bg-cyan/5 p-6">
+          <h2 class="font-display text-xl font-bold text-[var(--text-primary)]" data-i18n="section_key_verification">Key Verification</h2>
+          <div id="order-reveal-panel" class="mt-4 text-sm text-[var(--text-primary)]"></div>
+        </article>
+
+        <article class="border bg-[var(--surface)] p-6 dark:bg-[var(--surface)] border-[var(--border)]">
+          <h2 class="font-display text-xl font-bold text-[var(--text-primary)]" data-i18n="section_receipt">Receipt</h2>
+          <div class="mt-4 space-y-3 text-sm">
+            <div class="flex justify-between"><span class="text-[var(--muted)]" data-i18n="label_subtotal">Subtotal</span><span id="receipt-subtotal" class="text-[var(--text-primary)]">0.00 DZD</span></div>
+            <div class="flex justify-between"><span class="text-[var(--muted)]" data-i18n="label_discount">Discount</span><span id="receipt-discount" class="text-cyan">0.00 DZD</span></div>
+            <div class="flex justify-between"><span class="text-[var(--muted)]" data-i18n="label_quantity">Quantity</span><span id="receipt-quantity" class="text-[var(--text-primary)]">0</span></div>
+            <div class="border-t pt-3 border-[var(--border)]"><div class="flex items-baseline justify-between"><span class="font-display text-lg font-bold text-[var(--text-primary)]" data-i18n="label_total">TOTAL</span><span id="receipt-total" class="font-display text-3xl font-black text-cyan">0.00 DZD</span></div></div>
+          </div>
+        </article>
+
+        <article class="border bg-[var(--surface)] p-6 dark:bg-[var(--surface)] border-[var(--border)]">
+          <h2 class="font-display text-xl font-bold text-[var(--text-primary)]" data-i18n="section_payment">Payment</h2>
+          <div id="order-payment-panel" class="mt-4 space-y-3 text-sm text-[var(--text-primary)]"></div>
+        </article>
+
+        <article class="border bg-[var(--surface)] p-6 dark:bg-[var(--surface)] border-[var(--border)]">
+          <h2 class="font-display text-xl font-bold text-[var(--text-primary)]" data-i18n="section_customer_details">Customer Details</h2>
+          <div id="order-shipping-panel" class="mt-4 text-sm text-[var(--text-primary)]"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <!-- Shared Components -->
+  <script type="module" src="assets/js/core/components.js"></script>
+  <!-- Page script -->
+  <script type="module" src="assets/js/pages/order-detail.js"></script>
+</body>
+</html>

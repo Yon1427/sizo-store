@@ -1,0 +1,16 @@
+{
+  "name": "sizo-store",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:css && npm run build:sitemap",
+    "build:css": "tailwindcss -c tailwind.config.js -i assets/css/tailwind-input.css -o assets/css/tailwind.css --minify",
+    "build:sitemap": "node tools/generate-sitemap.mjs",
+    "dev:css": "tailwindcss -c tailwind.config.js -i assets/css/tailwind-input.css -o assets/css/tailwind.css --watch",
+    "deploy": "wrangler pages deploy"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19",
+    "wrangler": "^4.118.0"
+  }
+}

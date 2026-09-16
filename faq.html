@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | SIZO Digital Store</title>
+  <meta name="description" content="Answers to common questions about buying digital gift cards, top-ups & game keys at SIZO: payments, delivery, platforms, regions, refunds, and account help.">
+  <link rel="canonical" href="https://sizo.uk/faq.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/faq.html?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/faq.html?lang=fr">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/faq.html?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/faq.html">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FAQ | SIZO Digital Store">
+  <meta property="og:description" content="Answers about payments, delivery, platforms, refunds, and account help.">
+  <meta property="og:url" content="https://sizo.uk/faq.html">
+  <meta property="og:image" content="https://sizo.uk/assets/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_DZ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAQ | SIZO Digital Store">
+  <meta name="twitter:description" content="Answers about payments, delivery, platforms, refunds, and account help.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When do I receive my key?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most local stock products are delivered immediately after payment confirmation. Your key is sent by email and can also be revealed from your order page after verification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I buy without an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Guest checkout is available. You must provide a valid email address so we can send your order access and digital delivery details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which payment methods are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SIZO currently uses Chargily Checkout with CIB and Edahabia payment support for Algerian customers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why verify the order email before showing keys?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This extra step protects delivered codes from being exposed to the wrong person after payment return, shared browser sessions, or forwarded order links."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if my payment fails?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your order stays pending and you can retry payment from checkout or the order page. Delivered keys are never assigned until the payment is confirmed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can digital products be refunded?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Refunds depend on delivery status and key usage. Read the full refund terms before purchase, especially for instantly delivered digital goods."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto max-w-5xl px-4 pt-28 pb-16">
+    <div class="mb-10 border-b pb-8" style="border-color:var(--border)">
+      <p class="font-mono text-xs uppercase tracking-[0.3em]" style="color:var(--cyan)" data-anim="fade-up" data-i18n="faq_breadcrumb">Support</p>
+      <h1 class="mt-2 font-display text-4xl font-black" style="color:var(--text-primary)" data-anim="fade-up" data-anim-delay="1" data-i18n="faq_title">Frequently Asked Questions</h1>
+      <p class="mt-3 max-w-2xl" style="color:var(--muted)" data-anim="fade-up" data-anim-delay="2" data-i18n="faq_subtitle">
+        Quick answers for payment, delivery, guest checkout, and order access on SIZO.
+      </p>
+    </div>
+
+    <section class="grid gap-6 md:grid-cols-2">
+      <article class="faq-card" data-anim="fade-up" data-anim-delay="3">
+        <p class="font-mono text-xs uppercase tracking-[0.25em]" style="color:var(--cyan)" data-i18n="faq_q1_cat">Delivery</p>
+        <h2 class="mt-3 font-display text-2xl font-bold" style="color:var(--text-primary)" data-i18n="faq_q1_q">When do I receive my key?</h2>
+        <p class="mt-3" style="color:var(--muted)" data-i18n="faq_q1_a">
+          Most local stock products are delivered immediately after payment confirmation. Your key is sent by email and can also be revealed from your order page after verification.
+        </p>
+      </article>
+      <article class="faq-card">
+        <p class="font-mono text-xs uppercase tracking-[0.25em]" style="color:var(--cyan)" data-i18n="faq_q2_cat">Guest Orders</p>
+        <h2 class="mt-3 font-display text-2xl font-bold" style="color:var(--text-primary)" data-i18n="faq_q2_q">Can I buy without an account?</h2>
+        <p class="mt-3" style="color:var(--muted)" data-i18n="faq_q2_a">
+          Yes. Guest checkout is available. You must provide a valid email address so we can send your order access and digital delivery details.
+        </p>
+      </article>
+      <article class="faq-card">
+        <p class="font-mono text-xs uppercase tracking-[0.25em]" style="color:var(--cyan)" data-i18n="faq_q3_cat">Payments</p>
+        <h2 class="mt-3 font-display text-2xl font-bold" style="color:var(--text-primary)" data-i18n="faq_q3_q">Which payment methods are supported?</h2>
+        <p class="mt-3" style="color:var(--muted)" data-i18n="faq_q3_a">
+          SIZO currently uses Chargily Checkout with CIB and Edahabia payment support for Algerian customers.
+        </p>
+      </article>
+      <article class="faq-card">
+        <p class="font-mono text-xs uppercase tracking-[0.25em]" style="color:var(--cyan)" data-i18n="faq_q4_cat">Order Access</p>
+        <h2 class="mt-3 font-display text-2xl font-bold" style="color:var(--text-primary)" data-i18n="faq_q4_q">Why verify the order email before showing keys?</h2>
+        <p class="mt-3" style="color:var(--muted)" data-i18n="faq_q4_a">
+          This extra step protects delivered codes from being exposed to the wrong person after payment return, shared browser sessions, or forwarded order links.
+        </p>
+      </article>
+      <article class="faq-card">
+        <p class="font-mono text-xs uppercase tracking-[0.25em]" style="color:var(--cyan)" data-i18n="faq_q5_cat">Failed Payment</p>
+        <h2 class="mt-3 font-display text-2xl font-bold" style="color:var(--text-primary)" data-i18n="faq_q5_q">What happens if my payment fails?</h2>
+        <p class="mt-3" style="color:var(--muted)" data-i18n="faq_q5_a">
+          Your order stays pending and you can retry payment from checkout or the order page. Delivered keys are never assigned until the payment is confirmed.
+        </p>
+      </article>
+      <article class="faq-card">
+        <p class="font-mono text-xs uppercase tracking-[0.25em]" style="color:var(--cyan)" data-i18n="faq_q6_cat">Refunds</p>
+        <h2 class="mt-3 font-display text-2xl font-bold" style="color:var(--text-primary)" data-i18n="faq_q6_q">Can digital products be refunded?</h2>
+        <p class="mt-3" style="color:var(--muted)" data-i18n="faq_q6_a">
+          Refunds depend on delivery status and key usage. Read the full refund terms before purchase, especially for instantly delivered digital goods.
+        </p>
+      </article>
+    </section>
+
+    <section class="mt-12 rounded-3xl border p-8" style="border-color:var(--border);background:var(--surface)">
+      <p class="font-mono text-xs uppercase tracking-[0.3em]" style="color:var(--coral)" data-i18n="faq_cta_label">Still Need Help?</p>
+      <h2 class="mt-3 font-display text-3xl font-black" style="color:var(--text-primary)" data-i18n="faq_cta_title">Contact Support</h2>
+      <p class="mt-3 max-w-2xl" style="color:var(--muted)" data-i18n="faq_cta_desc">
+        For payment issues, missing delivery, activation problems, or order access questions, contact the SIZO support team with your order number.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="support.html" class="btn-cyber bg-cyan px-6 py-3 font-display font-bold" style="color:var(--on-accent)" data-i18n="faq_cta_open">OPEN SUPPORT</a>
+        <a href="refund.html" class="btn-cyber border px-6 py-3 font-display font-bold" style="border-color:var(--border);color:var(--text-primary)" data-i18n="faq_cta_refund">REFUND POLICY</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <!-- Shared Components (auto-initializes theme, logo, mobile menu) -->
+  <script type="module" src="assets/js/core/components.js"></script>
+</body>
+</html>

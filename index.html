@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIZO — Digital Gift Cards, Top-Ups & Game Keys</title>
+  <meta name="description" content="Buy digital gift cards, mobile top-ups & game keys instantly at SIZO. Steam, PlayStation, Xbox, Nintendo & more. Secure Algerian payments, instant email delivery.">
+  <meta name="keywords" content="digital gift cards, mobile top-ups, game keys, buy gift cards Algeria, Steam wallet, PlayStation cards, Xbox cards, instant delivery">
+  <link rel="canonical" href="https://sizo.uk/">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/index.html?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/index.html?lang=fr">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/index.html?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/index.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SIZO — Digital Gift Cards, Top-Ups & Game Keys">
+  <meta property="og:description" content="Algeria's digital store for gift cards, top-ups & game keys. Instant delivery, secure payments.">
+  <meta property="og:url" content="https://sizo.uk/">
+  <meta property="og:image" content="https://sizo.uk/assets/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_DZ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIZO — Digital Gift Cards, Top-Ups & Game Keys">
+  <meta name="twitter:description" content="Algeria's digital store for gift cards, top-ups & game keys. Instant delivery.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=1781826133">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sizo.uk/#organization",
+        "name": "SIZO Digital Store",
+        "alternateName": "SIZO",
+        "url": "https://sizo.uk/",
+        "logo": "https://sizo.uk/assets/og-default.png",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sizo.uk/#website",
+        "url": "https://sizo.uk/",
+        "name": "SIZO Digital Store",
+        "description": "Algeria's digital store for gift cards, top-ups & game keys. Instant delivery in DZD.",
+        "publisher": { "@id": "https://sizo.uk/#organization" },
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://sizo.uk/browse.html?search={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Store",
+        "@id": "https://sizo.uk/#store",
+        "name": "SIZO Digital Store",
+        "url": "https://sizo.uk/",
+        "image": "https://sizo.uk/assets/og-default.png",
+        "priceRange": "DZD",
+        "areaServed": { "@type": "Country", "name": "Algeria" },
+        "paymentAccepted": "CIB, Edahabia"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content">
+
+    <!-- HERO — compact, search-focused -->
+    <section class="hero" aria-labelledby="hero-brand">
+      <div class="hero__accent-line" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__layout">
+          <div class="hero__copy">
+            <h1 class="hero__brand reveal" id="hero-brand">SIZO</h1>
+            <p class="hero__subtitle reveal delay-1" data-i18n="hero_subtitle">
+              Gift cards, top-ups &amp; game keys — instant delivery in DZD
+            </p>
+            <form action="browse.html" method="GET" class="hero__search reveal delay-2" role="search">
+              <div class="hero-search-wrapper">
+                <input type="search" name="search" class="hero-search-wrapper__input" data-i18n-placeholder="nav_search_placeholder" placeholder="Search 500+ products..." aria-label="Search products" autocomplete="off" aria-controls="hero-search-dropdown" aria-expanded="false" aria-autocomplete="list" id="hero-search-input">
+                <div class="search-dropdown" id="hero-search-dropdown" role="listbox" aria-label="Search results" style="display:none"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-label="Available brands">
+      <div class="marquee__track">
+        <span class="marquee__item">Steam</span><span class="marquee__sep" style="--i:0" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">PlayStation</span><span class="marquee__sep" style="--i:1" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Xbox</span><span class="marquee__sep" style="--i:2" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Nintendo</span><span class="marquee__sep" style="--i:3" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">PUBG Mobile</span><span class="marquee__sep" style="--i:4" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Free Fire</span><span class="marquee__sep" style="--i:5" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Mobile Legends</span><span class="marquee__sep" style="--i:6" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Riot Points</span><span class="marquee__sep" style="--i:7" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">EA Play</span><span class="marquee__sep" style="--i:8" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Roblox</span><span class="marquee__sep" style="--i:9" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">iTunes</span><span class="marquee__sep" style="--i:10" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Google Play</span><span class="marquee__sep" style="--i:11" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Steam</span><span class="marquee__sep" style="--i:12" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">PlayStation</span><span class="marquee__sep" style="--i:13" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Xbox</span><span class="marquee__sep" style="--i:14" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Nintendo</span><span class="marquee__sep" style="--i:15" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">PUBG Mobile</span><span class="marquee__sep" style="--i:16" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Free Fire</span><span class="marquee__sep" style="--i:17" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Mobile Legends</span><span class="marquee__sep" style="--i:18" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Riot Points</span><span class="marquee__sep" style="--i:19" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">EA Play</span><span class="marquee__sep" style="--i:20" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Roblox</span><span class="marquee__sep" style="--i:21" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">iTunes</span><span class="marquee__sep" style="--i:22" aria-hidden="true">&#9670;</span>
+        <span class="marquee__item">Google Play</span><span class="marquee__sep" style="--i:23" aria-hidden="true">&#9670;</span>
+      </div>
+    </div>
+
+    <!-- TABBED DISCOVERY — replaces Flash Sale + Upcoming + Trending + Best Deals -->
+    <section class="section" id="tabbed-discovery" aria-labelledby="tabbed-discovery-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="section-label reveal" style="color:var(--cyan);" data-i18n="tabbed_discovery_label">Hot Right Now</p>
+          <h2 class="section-title reveal delay-1" data-i18n="tabbed_discovery_title" id="tabbed-discovery-title">Discover</h2>
+        </div>
+        <div class="tabbed-discovery__tabs reveal delay-2" role="tablist" aria-label="Product categories">
+          <button class="tab-btn active" role="tab" id="tab-trending" aria-selected="true" aria-controls="panel-trending" data-tab="trending" data-i18n="tab_trending">Trending</button>
+          <button class="tab-btn" role="tab" id="tab-flash" aria-selected="false" aria-controls="panel-flash" data-tab="flash" data-i18n="tab_flash_sale">Flash Sale</button>
+          <button class="tab-btn" role="tab" id="tab-newly-added" aria-selected="false" aria-controls="panel-newly-added" data-tab="newly-added" data-i18n="tab_newly_added">Newly Added</button>
+          <button class="tab-btn" role="tab" id="tab-deals" aria-selected="false" aria-controls="panel-deals" data-tab="deals" data-i18n="tab_deals">Deals</button>
+        </div>
+        <!-- Trending panel -->
+        <div class="tabbed-discovery__panel active" role="tabpanel" id="panel-trending" aria-labelledby="tab-trending" tabindex="0">
+          <div id="trending-grid" class="featured-grid"></div>
+        </div>
+        <!-- Flash Sale panel -->
+        <div class="tabbed-discovery__panel" role="tabpanel" id="panel-flash" aria-labelledby="tab-flash" tabindex="0" hidden>
+          <div id="flash-sale-countdown" class="tabbed-discovery__countdown"></div>
+          <div id="flash-sale-grid" class="featured-grid"></div>
+        </div>
+        <!-- Newly Added panel -->
+        <div class="tabbed-discovery__panel" role="tabpanel" id="panel-newly-added" aria-labelledby="tab-newly-added" tabindex="0" hidden>
+          <div id="newly-added-grid" class="featured-grid"></div>
+        </div>
+        <!-- Deals panel -->
+        <div class="tabbed-discovery__panel" role="tabpanel" id="panel-deals" aria-labelledby="tab-deals" tabindex="0" hidden>
+          <div id="deals-grid" class="featured-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPACER -->
+    <div class="container" style="padding:2rem 0" aria-hidden="true"></div>
+
+    <!-- BEST SELLERS — most wanted gift cards -->
+    <section id="best-sellers" class="section section--alt" aria-labelledby="best-sellers-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="section-label reveal" data-i18n="home_best_sellers_label">Most Wanted</p>
+          <h2 class="section-title reveal delay-1" data-i18n="home_best_sellers_title" id="best-sellers-title">Best Sellers</h2>
+        </div>
+        <div class="product-grid featured-grid">
+          <div class="product-card reveal" aria-hidden="true">
+            <div class="product-card__image" style="aspect-ratio:16/9"><div class="skeleton" style="width:100%;height:100%"></div></div>
+            <div class="product-card__body">
+              <div class="skeleton" style="height:12px;width:40%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:14px;width:75%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:12px;width:50%;border-radius:4px"></div>
+            </div>
+          </div>
+          <div class="product-card reveal delay-1" aria-hidden="true">
+            <div class="product-card__image" style="aspect-ratio:16/9"><div class="skeleton" style="width:100%;height:100%"></div></div>
+            <div class="product-card__body">
+              <div class="skeleton" style="height:12px;width:40%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:14px;width:75%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:12px;width:50%;border-radius:4px"></div>
+            </div>
+          </div>
+          <div class="product-card reveal delay-2" aria-hidden="true">
+            <div class="product-card__image" style="aspect-ratio:16/9"><div class="skeleton" style="width:100%;height:100%"></div></div>
+            <div class="product-card__body">
+              <div class="skeleton" style="height:12px;width:40%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:14px;width:75%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:12px;width:50%;border-radius:4px"></div>
+            </div>
+          </div>
+          <div class="product-card reveal delay-3" aria-hidden="true">
+            <div class="product-card__image" style="aspect-ratio:16/9"><div class="skeleton" style="width:100%;height:100%"></div></div>
+            <div class="product-card__body">
+              <div class="skeleton" style="height:12px;width:40%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:14px;width:75%;margin-bottom:0.5rem;border-radius:4px"></div>
+              <div class="skeleton" style="height:12px;width:50%;border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:2.5rem" class="reveal">
+          <a href="browse.html?productType=GIFT_CARD&sort=popular" class="btn btn-secondary">
+            <span data-i18n="home_best_sellers_view_all">View All Best Sellers</span>
+            <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPACER -->
+    <div class="container" style="padding:2rem 0" aria-hidden="true"></div>
+
+    <!-- PLATFORM TABS — dynamic, replaces static category grid -->
+    <section class="section section--alt" id="platform-tabs-section" aria-labelledby="platform-tabs-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="section-label reveal" data-i18n="platform_tabs_label">Platforms</p>
+          <h2 class="section-title reveal delay-1" data-i18n="platform_tabs_title" id="platform-tabs-title">Browse by Platform</h2>
+        </div>
+        <div class="tabbed-discovery__tabs reveal delay-2" role="tablist" aria-label="Gaming platforms" id="platform-tab-bar">
+          <button class="tab-btn active" role="tab" id="plat-tab-steam" aria-selected="true" aria-controls="plat-panel-steam" data-platform="Steam">Steam</button>
+          <button class="tab-btn" role="tab" id="plat-tab-xbox" aria-selected="false" aria-controls="plat-panel-xbox" data-platform="Xbox">Xbox</button>
+          <button class="tab-btn" role="tab" id="plat-tab-playstation" aria-selected="false" aria-controls="plat-panel-playstation" data-platform="PlayStation">PlayStation</button>
+          <button class="tab-btn" role="tab" id="plat-tab-nintendo" aria-selected="false" aria-controls="plat-panel-nintendo" data-platform="Nintendo">Nintendo</button>
+          <button class="tab-btn" role="tab" id="plat-tab-epic" aria-selected="false" aria-controls="plat-panel-epic" data-platform="Epic Games">Epic Games</button>
+        </div>
+        <div class="tabbed-discovery__panel active" role="tabpanel" id="plat-panel-steam" aria-labelledby="plat-tab-steam" tabindex="0">
+          <div id="plat-grid-steam" class="featured-grid"></div>
+        </div>
+        <div class="tabbed-discovery__panel" role="tabpanel" id="plat-panel-xbox" aria-labelledby="plat-tab-xbox" tabindex="0" hidden>
+          <div id="plat-grid-xbox" class="featured-grid"></div>
+        </div>
+        <div class="tabbed-discovery__panel" role="tabpanel" id="plat-panel-playstation" aria-labelledby="plat-tab-playstation" tabindex="0" hidden>
+          <div id="plat-grid-playstation" class="featured-grid"></div>
+        </div>
+        <div class="tabbed-discovery__panel" role="tabpanel" id="plat-panel-nintendo" aria-labelledby="plat-tab-nintendo" tabindex="0" hidden>
+          <div id="plat-grid-nintendo" class="featured-grid"></div>
+        </div>
+        <div class="tabbed-discovery__panel" role="tabpanel" id="plat-panel-epic" aria-labelledby="plat-tab-epic" tabindex="0" hidden>
+          <div id="plat-grid-epic" class="featured-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSE CATALOGUE CTA -->
+    <section class="section" aria-labelledby="cta-catalogue-title">
+      <div class="container" style="text-align:center; padding:4rem 0 3rem">
+        <p class="section-label reveal" data-i18n="cta_catalogue_label">Your Next Game Awaits</p>
+        <h2 class="section-title reveal delay-1" data-i18n="cta_catalogue_title" id="cta-catalogue-title" style="margin-bottom:1.5rem" data-i18n="cta_catalogue_title">1,100+ Products. Instant Delivery.</h2>
+        <a href="browse.html" class="btn btn-primary btn-lg reveal delay-2" style="font-size:1.05rem;padding:0.85rem 2.75rem">
+          <span data-i18n="cta_browse_catalogue">Browse Our Full Catalogue</span>
+          <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/index.js"></script>
+</body>
+</html>

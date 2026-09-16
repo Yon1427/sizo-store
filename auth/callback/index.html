@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signing In | SIZO Digital Store</title>
+  <meta name="description" content="Completing your SIZO sign-in.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/tailwind.css">
+  <script defer src="../../assets/js/vendor/lucide-0.475.0.min.js"></script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <main id="main-content" class="mx-auto flex min-h-screen max-w-lg items-center px-4 py-10">
+    <section class="w-full border p-8" style="border-color:var(--border);background:var(--surface)">
+      <h1 class="font-display text-3xl font-black" style="color:var(--text-primary)" data-i18n="auth_signin_title">SIGNING YOU IN</h1>
+      <p id="auth-status" class="mt-3" style="color:var(--muted)" data-i18n="auth_processing">Processing secure authentication callback...</p>
+      <div class="mt-6 h-1 overflow-hidden rounded" style="background:var(--border)">
+        <div class="h-full w-full animate-pulse bg-cyan"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/assets/js/pages/auth-callback.js"></script>
+</body>
+</html>

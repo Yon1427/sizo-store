@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | SIZO Digital Store</title>
+  <meta name="description" content="Manage your SIZO profile, orders, addresses, wishlist, and reviews.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+</head>
+<body class="profile-page">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+  <div id="active-order-mount"></div>
+  <main id="main-content" class="mx-auto max-w-7xl px-4 pt-24 pb-16" tabindex="-1">
+    <div class="profile-shell">
+      <nav id="profile-nav-mount"></nav>
+      <div id="profile-content-mount"></div>
+    </div>
+  </main>
+  <footer id="footer-mount"></footer>
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/profile.js"></script>
+</body>
+</html>

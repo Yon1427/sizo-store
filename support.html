@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Help Center | SIZO Digital Store</title>
+  <meta name="description" content="Get help with your SIZO purchase. Submit a support ticket, check order status, or contact us about your digital products.">
+  <link rel="canonical" href="https://sizo.uk/support.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/support.html?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/support.html?lang=fr">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/support.html?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/support.html">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support | SIZO Digital Store">
+  <meta property="og:description" content="Submit a ticket or check order status. SIZO support is here to help.">
+  <meta property="og:url" content="https://sizo.uk/support.html">
+  <meta property="og:image" content="https://sizo.uk/assets/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_DZ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support | SIZO Digital Store">
+  <meta name="twitter:description" content="Submit a ticket or check order status.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto max-w-5xl px-4 pt-28 pb-16">
+    <div class="rounded-3xl border bg-[var(--surface)] p-8 dark:bg-[var(--surface)] border-[var(--border)]">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-anim="fade-up" data-i18n="support_breadcrumb">Customer Support</p>
+      <h1 class="mt-3 font-display text-4xl font-black" data-anim="fade-up" data-anim-delay="1" data-i18n="support_title">Need Help With an Order?</h1>
+      <p class="mt-4 max-w-3xl text-[var(--muted)]" data-anim="fade-up" data-anim-delay="2" data-i18n="support_subtitle">
+        Contact SIZO support for payment confirmation issues, missing delivery, guest order access, code activation problems, or general purchase questions.
+      </p>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border p-5 bg-[var(--bg)] border-[var(--border)]">
+          <p class="font-mono text-xs uppercase tracking-[0.25em] text-coral" data-i18n="support_contact_email_label">Email</p>
+          <h2 class="mt-2 font-display text-xl font-bold">support@sizo.uk</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]" data-i18n="support_contact_email_desc">Best for order issues, payment review, and delivery follow-up.</p>
+        </div>
+        <div class="rounded-2xl border p-5 bg-[var(--bg)] border-[var(--border)]">
+          <p class="font-mono text-xs uppercase tracking-[0.25em] text-coral" data-i18n="support_contact_time_label">Response Time</p>
+          <h2 class="mt-2 font-display text-xl font-bold" data-i18n="support_contact_time">Within 24 Hours</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]" data-i18n="support_contact_time_desc">Most order-related requests are handled much faster during business hours.</p>
+        </div>
+        <div class="rounded-2xl border p-5 bg-[var(--bg)] border-[var(--border)]">
+          <p class="font-mono text-xs uppercase tracking-[0.25em] text-coral" data-i18n="support_contact_include_label">Include</p>
+          <h2 class="mt-2 font-display text-xl font-bold" data-i18n="support_contact_include">Order Number</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]" data-i18n="support_contact_include_desc">Send your order number, purchase email, and a short issue summary.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <article class="rounded-3xl border bg-[var(--surface)] p-8 dark:bg-[var(--surface)] border-[var(--border)]">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-i18n="support_checklist_label">Before Contacting Support</p>
+        <h2 class="mt-3 font-display text-3xl font-black" data-i18n="support_checklist_title">Checklist</h2>
+        <ul class="mt-5 space-y-3 text-[var(--muted)]">
+          <li data-i18n="support_checklist_1">Check your inbox and spam folder for the delivery email.</li>
+          <li data-i18n="support_checklist_2">Open your order page and complete the key reveal verification step.</li>
+          <li data-i18n="support_checklist_3">Confirm the payment status on the checkout return page.</li>
+          <li data-i18n="support_checklist_4">Make sure the platform and region match the purchased product.</li>
+          <li data-i18n="support_checklist_5">For guest orders, use the same email address used at checkout.</li>
+        </ul>
+      </article>
+
+      <article class="rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-i18n="support_topics_label">Common Topics</p>
+        <div class="mt-5 space-y-4 text-[var(--text-primary)]">
+          <div>
+            <h3 class="font-display text-xl font-bold" data-i18n="support_topics_1_title">Payment Pending</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]" data-i18n="support_topics_1_desc">Include the payment time and order number so we can trace the Chargily event quickly.</p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold" data-i18n="support_topics_2_title">Code Not Visible</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]" data-i18n="support_topics_2_desc">Use the exact checkout email on the order detail reveal form.</p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold" data-i18n="support_topics_3_title">Activation Issue</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]" data-i18n="support_topics_3_desc">Share the platform, region, and the activation error message you received.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+      <article class="rounded-3xl border bg-[var(--surface)] p-8 dark:bg-[var(--surface)] border-[var(--border)]">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-i18n="support_form_label">Open Ticket</p>
+        <h2 class="mt-3 font-display text-3xl font-black" data-i18n="support_form_title">Submit A Support Request</h2>
+        <p class="mt-3 text-[var(--muted)]" data-i18n="support_form_desc">Use this form for payment issues, missing delivery, activation problems, refund questions, or guest-order recovery.</p>
+
+        <form id="support-ticket-form" class="mt-6 space-y-4">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="sr-only" for="support-name" data-i18n="support_form_name">Your name</label>
+            <input id="support-name" name="name" type="text" required autocomplete="name" data-i18n-placeholder="support_form_name_placeholder" placeholder="Your name" class="input-cyber" style="background:var(--bg)">
+            <label class="sr-only" for="support-email" data-i18n="support_form_email">Email used for the order</label>
+            <input id="support-email" name="email" type="email" required autocomplete="email" data-i18n-placeholder="support_form_email_placeholder" placeholder="Email used for the order" class="input-cyber" style="background:var(--bg)">
+          </div>
+          <div class="grid gap-4 sm:grid-cols-[0.85fr_1.15fr]">
+            <label class="sr-only" for="support-order-number" data-i18n="support_form_order">Order number (optional)</label>
+            <input id="support-order-number" name="orderNumber" type="text" data-i18n-placeholder="support_form_order_placeholder" placeholder="Order number (optional)" class="input-cyber" style="background:var(--bg)">
+            <label class="sr-only" for="support-category" data-i18n="support_form_category">Category</label>
+            <select id="support-category" name="category" class="select-cyber" style="background-color:var(--bg)">
+              <option value="GENERAL" data-i18n="support_form_cat_general">General question</option>
+              <option value="PAYMENT" data-i18n="support_form_cat_payment">Payment issue</option>
+              <option value="DELIVERY" data-i18n="support_form_cat_delivery">Delivery issue</option>
+              <option value="ACCESS" data-i18n="support_form_cat_access">Order access</option>
+              <option value="ACTIVATION" data-i18n="support_form_cat_activation">Activation problem</option>
+              <option value="REFUND" data-i18n="support_form_cat_refund">Refund request</option>
+            </select>
+          </div>
+          <label class="sr-only" for="support-subject" data-i18n="support_form_subject">Short subject</label>
+          <input id="support-subject" name="subject" type="text" required data-i18n-placeholder="support_form_subject_placeholder" placeholder="Short subject" class="input-cyber" style="background:var(--bg)">
+          <label class="sr-only" for="support-message" data-i18n="support_form_message">Message</label>
+          <textarea id="support-message" name="message" rows="7" required data-i18n-placeholder="support_form_message_placeholder" placeholder="Explain the problem, what you already tried, and any error message you saw." class="input-cyber min-h-[180px]" style="background:var(--bg)"></textarea>
+          <div id="support-turnstile" class="hidden"></div>
+          <div class="flex flex-wrap items-center gap-3">
+            <button id="support-submit" type="submit" class="btn-cyber bg-cyan px-6 py-3 font-display font-bold text-void" data-i18n="btn_submit_ticket">SUBMIT TICKET</button>
+            <p id="support-ticket-response" class="text-sm text-[var(--muted)]"></p>
+          </div>
+        </form>
+      </article>
+
+      <article class="rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-i18n="support_history_label">Ticket Feed</p>
+        <h2 class="mt-3 font-display text-3xl font-black text-[var(--text-primary)]" data-i18n="support_history_title">Recent Tickets</h2>
+        <p class="mt-3 text-[var(--muted)]" data-i18n="support_history_desc">If you're signed in, your latest ticket history will appear here automatically.</p>
+        <div id="support-ticket-history" class="mt-6 space-y-3 text-sm text-[var(--text-primary)]">
+          <div class="rounded-2xl border p-4 text-[var(--muted)] dark:text-[var(--muted)] bg-[var(--bg)] border-[var(--border)]" data-i18n="support_history_empty">
+            Sign in to see your recent support tickets here.
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="mt-10 flex flex-wrap gap-4 border-t pt-8 border-[var(--border)]">
+      <a href="mailto:support@sizo.uk?subject=SIZO%20Support%20Request" class="btn-cyber bg-cyan px-6 py-3 font-display font-bold text-void" data-i18n="support_footer_email">EMAIL SUPPORT</a>
+      <a href="faq.html" class="btn-cyber border px-6 py-3 font-display font-bold text-[var(--text-primary)] border-[var(--border)]" data-i18n="support_footer_faq">OPEN FAQ</a>
+      <a href="refund.html" class="btn-cyber border px-6 py-3 font-display font-bold text-[var(--text-primary)] border-[var(--border)]" data-i18n="support_footer_refund">REFUND POLICY</a>
+    </section>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/support.js"></script>
+</body>
+</html>

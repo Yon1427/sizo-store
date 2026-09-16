@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+Disallow: /auth/
+Disallow: /profile.html
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /order-detail.html
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /forgot-password.html
+Disallow: /reset-password.html
+Disallow: /verify-email.html
+
+# AI training crawlers — allow or block as needed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://sizo.uk/sitemap.xml

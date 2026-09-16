@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | SIZO Digital Store</title>
+  <meta name="description" content="Buy digital gift cards, top-ups & game keys instantly at SIZO. Secure payments, instant email delivery.">
+  <link rel="canonical" href="https://sizo.uk/game-detail.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/game-detail.html">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/game-detail.html">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/game-detail.html">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/game-detail.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Product Details | SIZO Digital Store">
+  <meta property="og:description" content="Buy digital gift cards, top-ups & game keys instantly at SIZO. Instant email delivery.">
+  <meta property="og:url" content="https://sizo.uk/game-detail.html">
+  <meta property="og:image" content="https://sizo.uk/assets/og-games.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Product Details | SIZO Digital Store">
+  <meta name="twitter:description" content="Buy digital gift cards, top-ups & game keys instantly at SIZO.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-games.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <script type="application/ld+json" id="jsonld-product"></script>
+  <script type="application/ld+json" id="jsonld-breadcrumb"></script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="detail-page container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb" data-anim="fade-up">
+      <a href="index.html" data-i18n="breadcrumb_home">Home</a>
+      <span>/</span>
+      <a href="browse.html" data-i18n="breadcrumb_store">Store</a>
+      <span>/</span>
+      <span id="breadcrumb-title" style="color:var(--text)" data-i18n="loading_text">Loading...</span>
+    </nav>
+
+    <!-- Product Section -->
+    <div class="product-layout">
+      <!-- Left: Gallery + Tabs -->
+      <div class="product-media">
+        <div class="gallery" aria-label="Product screenshots" data-anim="slide-left" data-anim-delay="1">
+          <div class="gallery__main">
+            <img id="main-image" loading="eager" fetchpriority="high" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' fill='%231a1a24'%3E%3Crect width='800' height='450'/%3E%3C/svg%3E" alt="Product image">
+          </div>
+          <div class="gallery__thumbs">
+            <button class="gallery__thumb active" aria-label="View screenshot 1" aria-pressed="true"><img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='56' fill='%231a1a24'%3E%3Crect width='80' height='56'/%3E%3C/svg%3E" alt="Thumbnail 1"></button>
+            <button class="gallery__thumb" aria-label="View screenshot 2" aria-pressed="false"><img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='56' fill='%231a1a24'%3E%3Crect width='80' height='56'/%3E%3C/svg%3E" alt="Thumbnail 2"></button>
+            <button class="gallery__thumb" aria-label="View screenshot 3" aria-pressed="false"><img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='56' fill='%231a1a24'%3E%3Crect width='80' height='56'/%3E%3C/svg%3E" alt="Thumbnail 3"></button>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="detail-tabs">
+          <div class="detail-tabs__nav" role="tablist">
+            <button class="detail-tab-btn active" role="tab" id="tab-about-btn" aria-selected="true" aria-controls="tab-about" tabindex="0" data-tab="about" data-i18n="tab_about">About</button>
+            <button class="detail-tab-btn" role="tab" id="tab-details-btn" aria-selected="false" aria-controls="tab-details" tabindex="-1" data-tab="details" data-i18n="tab_details">Details</button>
+            <button class="detail-tab-btn" role="tab" id="tab-system-btn" aria-selected="false" aria-controls="tab-system" tabindex="-1" data-tab="system" data-i18n="tab_requirements">System Requirements</button>
+            <button class="detail-tab-btn" role="tab" id="tab-reviews-btn" aria-selected="false" aria-controls="tab-reviews" tabindex="-1" data-tab="reviews" data-i18n="tab_reviews">Reviews</button>
+          </div>
+          <div class="detail-tab-panel active" id="tab-about" role="tabpanel" aria-labelledby="tab-about-btn" tabindex="0">
+            <div class="detail-card prose">
+              <div id="game-description"><p data-i18n="loading_description">Loading description...</p></div>
+            </div>
+          </div>
+          <div class="detail-tab-panel" id="tab-details" role="tabpanel" aria-labelledby="tab-details-btn" tabindex="0">
+            <div class="detail-card">
+              <!-- Genres -->
+              <div id="details-genres-section" class="mb-6">
+                <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="section_genres">Genres</h2>
+                <div id="details-genres" class="flex flex-wrap gap-2"></div>
+              </div>
+              <!-- Languages -->
+              <div id="details-languages-section" class="mb-6">
+                <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="section_languages">Supported Languages</h2>
+                <div id="details-languages" class="flex flex-wrap gap-2"></div>
+              </div>
+              <!-- Rating & Meta -->
+              <div id="details-rating-section" class="mb-6">
+                <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="section_rating_info">Rating &amp; Info</h2>
+                <div class="grid gap-3 sm:grid-cols-2">
+                  <div id="details-age-rating" class="detail-inline-card border border-[var(--border)] bg-[var(--surface)]/50 p-4 hidden">
+                    <p class="font-mono text-xs uppercase tracking-[0.25em] text-cyan" data-i18n="section_age_rating">Age Rating</p>
+                    <p class="mt-2 text-[var(--ivory)]" id="details-age-rating-value"></p>
+                  </div>
+                  <div id="details-metacritic" class="detail-inline-card border border-[var(--border)] bg-[var(--surface)]/50 p-4 hidden">
+                    <p class="font-mono text-xs uppercase tracking-[0.25em] text-cyan" data-i18n="section_metacritic">Metacritic Score</p>
+                    <p class="mt-2 text-[var(--ivory)]" id="details-metacritic-value"></p>
+                  </div>
+                  <div id="details-sold-count" class="detail-inline-card border border-[var(--border)] bg-[var(--surface)]/50 p-4">
+                    <p class="font-mono text-xs uppercase tracking-[0.25em] text-cyan" data-i18n="section_sold">Sold</p>
+                    <p class="mt-2 text-[var(--ivory)]" id="details-sold-count-value"></p>
+                  </div>
+                </div>
+              </div>
+              <!-- Activation -->
+              <div id="details-activation-section" class="mb-6 hidden">
+                <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="section_activation">Activation Instructions</h2>
+                <div class="detail-inline-card border border-[var(--border)] bg-[var(--surface)]/50 p-4 prose">
+                  <p id="details-activation" class="text-[var(--ivory)] leading-relaxed"></p>
+                </div>
+              </div>
+              <!-- Tags -->
+              <div id="details-tags-section">
+                <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="section_tags">Tags</h2>
+                <div id="details-tags" class="flex flex-wrap gap-2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-tab-panel" id="tab-system" role="tabpanel" aria-labelledby="tab-system-btn" tabindex="0">
+            <div class="detail-card">
+              <h2 class="font-display text-lg font-bold mb-4" style="color:var(--text)" data-i18n="tab_requirements">System Requirements</h2>
+              <div id="system-requirements" class="text-muted" data-i18n="loading_text">Loading...</div>
+            </div>
+          </div>
+          <div class="detail-tab-panel" id="tab-reviews" role="tabpanel" aria-labelledby="tab-reviews-btn" tabindex="0">
+            <!-- Review summary -->
+            <div class="review-summary mb-6">
+              <div class="relative flex items-center gap-5 mb-5">
+                <span id="reviews-average" class="review-summary-score">—</span>
+                <div>
+                  <div id="reviews-stars-display" class="review-summary-stars mb-1"></div>
+                  <p id="reviews-count" class="review-summary-count">0 reviews</p>
+                </div>
+              </div>
+              <div id="reviews-distribution" class="space-y-2 max-w-sm relative"></div>
+            </div>
+
+            <!-- Review list -->
+            <div class="mb-6">
+              <h2 class="font-display text-sm font-bold uppercase tracking-widest mb-4 text-cyan" data-i18n="reviews_heading">Reviews</h2>
+              <div id="reviews-list" class="space-y-3"><p class="text-sm text-muted" data-i18n="loading_reviews">Loading reviews...</p></div>
+            </div>
+
+            <!-- Review composer -->
+            <div class="review-composer">
+              <h2 class="font-display text-sm font-bold uppercase tracking-widest mb-1 text-cyan" data-i18n="reviews_your_review">Your Review</h2>
+              <p id="review-form-copy" class="text-sm mb-4 text-muted" data-i18n="reviews_sign_in_prompt">Sign in to leave a review.</p>
+              <a id="review-sign-in" href="login.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem">
+                <i data-lucide="log-in" class="w-4 h-4"></i> <span data-i18n="btn_sign_in_to_review">SIGN IN TO REVIEW</span>
+              </a>
+              <form id="review-form" class="hidden space-y-5 mt-4" novalidate>
+                <input type="hidden" id="review-rating" value="5">
+                <div>
+                  <label class="review-composer-label" data-i18n="reviews_rating_label">Rating</label>
+                  <div id="review-star-picker" class="review-star-picker" aria-label="Select rating" data-i18n-aria-label="aria_select_rating" role="radiogroup">
+                    <span data-value="1" role="radio" aria-label="1 star" data-i18n-aria-label="aria_1_star" aria-checked="true" tabindex="0" class="text-gold">★</span>
+                    <span data-value="2" role="radio" aria-label="2 stars" data-i18n-aria-label="aria_2_stars" aria-checked="false" tabindex="-1" class="text-gold">★</span>
+                    <span data-value="3" role="radio" aria-label="3 stars" data-i18n-aria-label="aria_3_stars" aria-checked="false" tabindex="-1" class="text-gold">★</span>
+                    <span data-value="4" role="radio" aria-label="4 stars" data-i18n-aria-label="aria_4_stars" aria-checked="false" tabindex="-1" class="text-gold">★</span>
+                    <span data-value="5" role="radio" aria-label="5 stars" data-i18n-aria-label="aria_5_stars" aria-checked="false" tabindex="-1" class="text-gold">★</span>
+                  </div>
+                </div>
+                <div>
+                  <label for="review-title" class="review-composer-label"><span data-i18n="reviews_title_label">Title</span> <span class="text-muted" style="font-weight:400">(optional)</span></label>
+                  <input id="review-title" type="text" maxlength="100" placeholder="Sum it up in a few words" data-i18n-placeholder="reviews_title_placeholder" class="input-field w-full">
+                </div>
+                <div>
+                  <label for="review-content" class="review-composer-label">Review <span class="text-coral">*</span></label>
+                  <textarea id="review-content" rows="4" maxlength="2000" required placeholder="Share your experience — what worked, what surprised you, would you recommend it?" data-i18n-placeholder="reviews_body_placeholder" class="input-field w-full resize-none"></textarea>
+                  <div class="flex justify-end mt-1">
+                    <span id="review-content-count" class="review-char-count">0</span>
+                    <span class="review-char-count text-muted"> / 2000</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                  <button id="review-submit" type="submit" class="btn btn-primary" data-i18n="btn_submit_review">SUBMIT REVIEW</button>
+                  <button id="review-delete" type="button" class="hidden font-mono text-xs underline" style="color:var(--danger)" data-i18n="btn_delete_review">DELETE REVIEW</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Purchase Panel -->
+      <div class="purchase-panel" data-game-summary data-anim="slide-right" data-anim-delay="1">
+        <div class="purchase-panel__header">
+          <!-- Badges -->
+          <div class="purchase-panel__badges">
+            <span id="product-type-badge" class="badge badge--cyan product-type-badge--gift-card hidden"></span>
+            <span id="game-category-badge" class="badge badge--cyan">--</span>
+          </div>
+
+          <!-- Title -->
+          <h1 id="game-title" class="purchase-panel__title" data-i18n="loading_text">Loading...</h1>
+
+          <!-- Rating -->
+          <div class="purchase-panel__rating">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span id="game-rating" data-i18n="loading_text">Loading...</span>
+            <span style="color:var(--border)">·</span>
+            <span id="game-sold-count" style="color:var(--muted);font-size:0.85rem"></span>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="purchase-panel__pricing">
+          <div class="price-block">
+            <span id="game-price" class="price-block__current">-- DZD</span>
+            <span id="game-original-price" class="price-block__original"></span>
+            <span id="game-discount-badge" class="price-block__discount hidden"></span>
+          </div>
+
+          <!-- Savings bar -->
+          <div id="savings-highlight" class="savings-bar hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span id="savings-text" data-i18n="savings_you_save">You save</span>
+          </div>
+        </div>
+
+        <!-- Variant Picker -->
+        <div id="variant-picker" class="variant-picker hidden">
+          <p class="variant-picker__label" data-i18n="variant_choose_option">Choose Option</p>
+          <div id="variant-options" class="variant-options"></div>
+        </div>
+
+        <!-- CTA -->
+        <div class="purchase-panel__cta" data-anim="scale-in" data-anim-delay="2">
+          <button id="add-to-cart" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span data-i18n="btn_add_to_cart">Add to Cart</span>
+          </button>
+          <button id="wishlist-toggle" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span data-i18n="btn_save_wishlist">Save to Wishlist</span>
+          </button>
+        </div>
+
+        <!-- Trust -->
+        <div class="trust-list">
+          <div class="trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="trust_instant_delivery">Instant digital delivery by email</span></div>
+          <div class="trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-i18n="trust_encrypted_checkout">Encrypted checkout and order protection</span></div>
+          <div class="trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="trust_official_guarantee">Official code replacement guarantee</span></div>
+        </div>
+
+        <!-- Metadata -->
+        <div id="game-metadata" class="meta-table">
+          <div class="meta-row" data-meta="developer"><span class="meta-row__label" data-i18n="product_developer">Developer</span><span class="meta-row__value" id="game-developer">--</span></div>
+          <div class="meta-row" data-meta="publisher"><span class="meta-row__label" data-i18n="product_publisher">Publisher</span><span class="meta-row__value" id="game-publisher">--</span></div>
+          <div class="meta-row" data-meta="release-date"><span class="meta-row__label" data-i18n="product_release_date">Release Date</span><span class="meta-row__value" id="game-release-date">--</span></div>
+          <div class="meta-row" data-meta="platform"><span class="meta-row__label" data-i18n="product_platform">Platform</span><span class="meta-row__value" id="game-platform">--</span></div>
+          <div class="meta-row" data-meta="region"><span class="meta-row__label" data-i18n="product_region">Region</span><span class="meta-row__value" id="game-region">--</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended Section -->
+    <section id="recommended-section" class="related-section" style="display:none">
+      <h2 class="related-section__title">
+        <i data-lucide="sparkles" class="w-5 h-5 text-cyan"></i>
+        <span data-i18n="section_recommended">Recommended For You</span>
+      </h2>
+      <div id="recommended-grid" class="product-grid"></div>
+    </section>
+
+    <!-- Mobile Sticky Bar -->
+    <div id="mobile-sticky-bar" class="mobile-buy-bar" aria-label="Buy actions">
+      <div class="mobile-buy-bar__price">
+        <span id="sticky-price" class="price-block__current" style="font-size:1.25rem">-- DZD</span>
+        <span id="sticky-original" class="price-block__original text-muted" style="font-size:0.875rem"></span>
+      </div>
+      <button id="sticky-add-cart" class="btn btn-primary" data-i18n="btn_add_to_cart">Add to Cart</button>
+    </div>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/game-detail.js"></script>
+</body>
+</html>

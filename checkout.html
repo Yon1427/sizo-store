@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | SIZO Digital Store</title>
+  <meta name="description" content="Complete your digital purchase securely at SIZO. Pay instantly via Chargily.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color: light)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="checkout-page container">
+    <!-- Header -->
+    <div class="checkout-header">
+      <h1 class="checkout-title" data-anim="fade-up" data-i18n="checkout_title">Checkout</h1>
+    </div>
+
+    <!-- Progress stepper -->
+    <div class="checkout-progress">
+      <nav aria-label="Checkout progress">
+        <ol class="checkout-steps" id="checkout-steps">
+          <li class="checkout-step completed" data-step="1">
+            <a href="cart.html" class="checkout-step__link" aria-label="Back to cart">
+              <div class="checkout-step__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="checkout-step__label" data-i18n="checkout_step_cart">Cart</span>
+            </a>
+          </li>
+          <li class="checkout-step__line completed" aria-hidden="true"></li>
+          <li class="checkout-step active" data-step="2" aria-current="step">
+            <div class="checkout-step__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="checkout-step__label" data-i18n="checkout_step_details">Details</span>
+          </li>
+          <li class="checkout-step__line" aria-hidden="true"></li>
+          <li class="checkout-step" data-step="3">
+            <div class="checkout-step__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span class="checkout-step__label" data-i18n="checkout_step_pay">Pay</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Main layout -->
+    <div class="checkout-layout">
+      <!-- Left: Form panels -->
+      <div class="checkout-form" data-anim="slide-left" data-anim-delay="1">
+        <!-- Step 1: Shipping details -->
+        <div id="step1" class="checkout-section active">
+          <div class="checkout-card">
+            <div class="checkout-card__header">
+              <div class="checkout-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <h2 class="checkout-card__title" data-i18n="checkout_your_details">Your Details</h2>
+                <p class="checkout-card__subtitle" data-i18n="checkout_delivery_subtitle">Used for delivery and receipt</p>
+              </div>
+            </div>
+
+            <form id="shipping-form" class="form-stack" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-field__label required" for="firstName" data-i18n="field_first_name">First Name</label>
+                  <input class="form-field__input" id="firstName" name="firstName" autocomplete="given-name" required data-i18n-placeholder="checkout_first_name_placeholder" placeholder="John">
+                  <span class="form-field__error" id="firstName-error"></span>
+                </div>
+                <div class="form-field">
+                  <label class="form-field__label required" for="lastName" data-i18n="field_last_name">Last Name</label>
+                  <input class="form-field__input" id="lastName" name="lastName" autocomplete="family-name" required data-i18n-placeholder="checkout_last_name_placeholder" placeholder="Doe">
+                  <span class="form-field__error" id="lastName-error"></span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-field__label required" for="email" data-i18n="field_email">Email Address</label>
+                <input class="form-field__input" id="email" name="email" type="email" autocomplete="email" required data-i18n-placeholder="checkout_email_placeholder" placeholder="john@example.com">
+                <span class="form-field__error" id="email-error"></span>
+              </div>
+              <div class="form-field">
+                <label class="form-field__label" for="phone"><span data-i18n="checkout_phone">Phone Number</span> <span style="color:var(--muted);font-weight:400" data-i18n="checkout_optional">(optional)</span></label>
+                <input class="form-field__input" id="phone" name="phone" type="tel" autocomplete="tel" data-i18n-placeholder="checkout_phone_placeholder" placeholder="+213 555 123 456">
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem" data-i18n="btn_continue">
+                Continue
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Step 2: Review + pay -->
+        <div id="step2" class="checkout-section">
+          <div class="checkout-card">
+            <div id="edit-details-link" class="hidden">
+              <button type="button" id="edit-details-btn" class="edit-details-link" data-i18n="checkout_edit_details">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Edit details
+              </button>
+            </div>
+
+            <div class="confirm-delivery">
+              <p class="confirm-delivery__label" data-i18n="checkout_delivering_to">Delivering to</p>
+              <p class="confirm-delivery__text" id="confirm-customer-text"></p>
+            </div>
+
+            <div class="confirm-items">
+              <p class="confirm-items__label" data-i18n="checkout_your_order">Your Order</p>
+              <div id="confirm-items-list"></div>
+            </div>
+
+            <div class="form-field" style="margin-bottom:1rem">
+              <label class="form-field__label" for="coupon-code" data-i18n="checkout_promo_code">Promo Code</label>
+              <div class="promo-row">
+                <input type="text" id="coupon-code" class="promo-input" data-i18n-placeholder="checkout_promo_placeholder" placeholder="e.g. SPRING25" autocomplete="off">
+                <button type="button" id="apply-coupon" class="btn btn-secondary btn-sm" data-i18n="btn_apply">Apply</button>
+              </div>
+              <p id="coupon-feedback" class="promo-feedback"></p>
+            </div>
+
+            <div class="inline-total">
+              <span class="inline-total__label" data-i18n="checkout_total">Total</span>
+              <span class="inline-total__value" id="confirm-total-inline">0.00 DZD</span>
+            </div>
+
+            <div id="checkout-turnstile"></div>
+
+            <div class="checkout-sticky-cta">
+              <button type="button" id="place-order" class="btn btn-success" style="width:100%">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Pay with Chargily
+              </button>
+              <button type="button" id="get-fresh-link-btn" class="btn btn-secondary" style="width:100%; margin-top:0.5rem; display:none;" data-i18n="btn_get_fresh_link">
+                Get Fresh Link
+              </button>
+            </div>
+
+            <p class="trust-line" data-i18n="checkout_trust_line">Secured by Chargily &middot; Instant digital delivery</p>
+
+            <button type="button" id="back-to-details-btn" class="btn btn-secondary" style="width:100%;margin-top:0.75rem" data-i18n="checkout_edit_details">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Edit Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Success message -->
+        <div id="success-message" class="checkout-card checkout-success hidden" role="status" aria-live="polite">
+          <div class="checkout-success__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h2 class="checkout-success__title" data-i18n="checkout_order_created">Order Created</h2>
+          <p class="checkout-success__desc" data-i18n="checkout_redirecting">Redirecting to payment provider...</p>
+          <div class="checkout-success__order">
+            <span class="checkout-success__order-label" data-i18n="checkout_order_hash">Order #</span>
+            <span class="checkout-success__order-number" id="success-order-number">—</span>
+          </div>
+          <a href="profile.html?tab=orders" class="btn btn-primary" style="margin-top:1.5rem" data-i18n="checkout_view_orders">View Orders</a>
+        </div>
+      </div>
+
+      <!-- Right: Order summary -->
+      <div class="checkout-summary" data-anim="slide-right" data-anim-delay="2">
+        <div class="checkout-summary__header">
+          <h2 class="checkout-summary__title" data-i18n="checkout_order_summary">Order Summary</h2>
+          <a href="cart.html" class="checkout-summary__edit" data-i18n="checkout_edit_cart">Edit cart</a>
+        </div>
+        <div class="checkout-summary__lines">
+          <div class="summary-line">
+            <span class="summary-line__label" data-i18n="checkout_subtotal">Subtotal</span>
+            <span class="summary-line__value" id="summary-subtotal">0.00 DZD</span>
+          </div>
+          <div class="summary-line">
+            <span class="summary-line__label" data-i18n="checkout_store_savings">Store Savings</span>
+            <span class="summary-line__value summary-line__value--success" id="summary-savings">—</span>
+          </div>
+          <div class="summary-line" id="coupon-discount-row" style="display:none">
+            <span class="summary-line__label" data-i18n="checkout_coupon">Coupon</span>
+            <span class="summary-line__value summary-line__value--success" id="coupon-discount">—</span>
+          </div>
+          <div class="summary-line" id="wallet-deduction-row" style="display:none">
+            <span class="summary-line__label text-cyan" data-i18n="checkout_wallet_deduction">Wallet balance</span>
+            <span class="summary-line__value text-cyan" id="summary-wallet">—</span>
+          </div>
+          <div class="summary-line" id="remaining-row" style="display:none">
+            <span class="summary-line__label text-coral" data-i18n="checkout_remaining">Remaining to pay</span>
+            <span class="summary-line__value text-coral" id="summary-remaining">—</span>
+          </div>
+          <div class="summary-line" id="wallet-toggle-row" style="display:none">
+            <label for="use-wallet-checkbox" style="display:flex;align-items:center;gap:0.5rem;padding:0.25rem 0 0.5rem;font-size:0.8rem;color:var(--muted);cursor:pointer">
+              <input type="checkbox" id="use-wallet-checkbox" checked>
+              <span data-i18n="checkout_use_wallet">Use wallet balance</span>
+            </label>
+          </div>
+          <div class="summary-total">
+            <span class="summary-total__label" data-i18n="checkout_total">Total</span>
+            <span class="summary-total__value" id="summary-total">0.00 DZD</span>
+          </div>
+        </div>
+
+        <div class="trust-signals" style="margin-top:1rem">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-i18n="checkout_trust_secured">Secured by Chargily</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span data-i18n="checkout_trust_delivery">Instant delivery after payment</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span data-i18n="checkout_trust_codes">Official codes only</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/checkout.js"></script>
+</body>
+</html>

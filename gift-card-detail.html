@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Gift Card Details | SIZO Digital Store</title>
+  <meta name="description" content="Buy digital gift cards instantly at SIZO. Steam, PlayStation, Xbox, Nintendo & more.">
+  <link rel="canonical" href="https://sizo.uk/gift-card-detail.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/gift-card-detail.html">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/gift-card-detail.html">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/gift-card-detail.html">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/gift-card-detail.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Gift Card Details | SIZO Digital Store">
+  <meta property="og:description" content="Buy digital gift cards instantly. Fast email delivery.">
+  <meta property="og:image" content="https://sizo.uk/assets/og-giftcards.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://sizo.uk/gift-card-detail.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gift Card Details | SIZO Digital Store">
+  <meta name="twitter:description" content="Buy digital gift cards instantly at SIZO.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-giftcards.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <script type="application/ld+json" id="jsonld-product"></script>
+  <script type="application/ld+json" id="jsonld-breadcrumb"></script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 pt-24 pb-16">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 text-xs font-mono text-muted" aria-label="Breadcrumb" data-anim="fade-up">
+      <ol class="flex items-center gap-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <a href="index.html" class="hover:underline text-muted" itemprop="item"><span itemprop="name" data-i18n="breadcrumb_home">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <a href="browse.html" class="hover:underline text-muted" itemprop="item"><span itemprop="name" data-i18n="breadcrumb_store">Store</span></a>
+          <meta itemprop="position" content="2">
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <a href="browse.html?productType=GIFT_CARD" class="hover:underline text-muted" itemprop="item"><span itemprop="name" data-i18n="breadcrumb_giftcards">Gift Cards</span></a>
+          <meta itemprop="position" content="3">
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <span id="breadcrumb-title" style="color:var(--text)" aria-current="page" itemprop="name" data-i18n="loading_text">Loading...</span>
+          <meta itemprop="position" content="4">
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Gift Card Section -->
+    <section class="grid gap-8 lg:grid-cols-[1fr_380px]">
+      <!-- Left: Image -->
+      <div data-anim="slide-left" data-anim-delay="1">
+        <div class="rounded-xl overflow-hidden border-subtle">
+          <img id="gc-image" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' fill='%231a1a24'%3E%3Crect width='800' height='450'/%3E%3C/svg%3E" class="w-full max-h-[420px] object-cover" alt="Gift card image">
+        </div>
+        <!-- Description -->
+        <div class="mt-6">
+          <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="about_giftcard">About this gift card</h2>
+          <div id="gc-description" class="text-sm leading-relaxed text-muted">
+            Loading...
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Purchase Panel -->
+      <div class="purchase-panel h-fit lg:sticky lg:top-24" data-anim="slide-right" data-anim-delay="1">
+        <!-- Badge -->
+        <div class="flex items-center gap-2 mb-3">
+          <span class="badge badge--cyan" data-i18n="badge_giftcard">GIFT CARD</span>
+          <span id="gc-category-badge" class="badge badge--outline">--</span>
+        </div>
+
+        <!-- Title -->
+        <h1 id="gc-title" class="font-display text-2xl font-bold leading-tight" style="color:var(--text)" data-i18n="loading_text">Loading...</h1>
+
+        <!-- Rating -->
+        <div class="flex items-center gap-2 mt-2 mb-5">
+          <i data-lucide="star" class="w-4 h-4 fill-current text-gold"></i>
+          <span id="gc-rating" class="font-mono text-xs text-muted" data-i18n="loading_text">Loading...</span>
+        </div>
+
+        <!-- Denomination Picker -->
+        <div id="gc-denominations" class="mb-5">
+          <p class="font-mono text-xs uppercase tracking-wider mb-3 text-cyan" data-i18n="select_amount">Select Amount</p>
+          <div id="gc-denomination-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2" role="group" aria-label="Select denomination">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- Price display -->
+        <div class="flex items-baseline gap-3 mb-2">
+          <span id="gc-price" class="font-display text-3xl font-bold text-success">-- DZD</span>
+          <span id="gc-original-price" class="line-through text-lg text-muted"></span>
+        </div>
+        <div id="gc-savings" class="hidden mb-4 text-xs font-mono text-success">
+          You save <span id="gc-savings-amount">0 DZD</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="space-y-2 mb-5 mt-4" data-anim="scale-in" data-anim-delay="2">
+          <button id="gc-add-to-cart" class="gc-cta gc-cta--primary flex items-center justify-center gap-2">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i> ADD TO CART
+          </button>
+          <button id="gc-wishlist" class="gc-cta gc-cta--secondary flex items-center justify-center gap-2 text-sm">
+            <i data-lucide="heart" class="w-4 h-4"></i> SAVE TO WISHLIST
+          </button>
+        </div>
+
+        <!-- Trust -->
+        <div style="border-top:1px solid var(--border);padding-top:1rem">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span data-i18n="giftcard_trust_delivery">Instant email delivery</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span data-i18n="giftcard_trust_payments">Secure payments</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-i18n="giftcard_trust_guarantee">Official code guaranteed</span>
+          </div>
+        </div>
+
+        <!-- Region -->
+        <div style="border-top:1px solid var(--border);padding-top:0.75rem;margin-top:0.75rem">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-muted" data-i18n="label_region">Region</span>
+            <span id="gc-region" class="font-mono" style="color:var(--text)" data-i18n="default_region">GLOBAL</span>
+          </div>
+          <div class="flex items-center justify-between text-xs mt-2">
+            <span class="text-muted" data-i18n="label_platform">Platform</span>
+            <span id="gc-platform" class="font-mono" style="color:var(--text)">--</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile Sticky Bar -->
+    <div id="mobile-sticky-bar" class="mobile-sticky-bar" aria-label="Buy actions">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <span id="sticky-price" class="font-display text-xl font-bold text-success">-- DZD</span>
+          <span id="sticky-original" class="price-was line-through text-sm ml-2 text-muted"></span>
+        </div>
+        <button id="sticky-add-cart" class="btn btn-primary flex-1 max-w-[200px]" data-i18n="btn_add_to_cart">ADD TO CART</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/gift-card-detail.js"></script>
+</body>
+</html>

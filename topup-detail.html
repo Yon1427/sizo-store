@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Top-Up Details | SIZO Digital Store</title>
+  <meta name="description" content="Top up your game account instantly at SIZO. PUBG, Free Fire, Mobile Legends & more.">
+  <link rel="canonical" href="https://sizo.uk/topup-detail.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/topup-detail.html">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/topup-detail.html">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/topup-detail.html">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/topup-detail.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Top-Up Details | SIZO Digital Store">
+  <meta property="og:description" content="Instant in-game currency top-up. Fast delivery.">
+  <meta property="og:image" content="https://sizo.uk/assets/og-topup.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://sizo.uk/topup-detail.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Top-Up Details | SIZO Digital Store">
+  <meta name="twitter:description" content="Top up your game account instantly at SIZO.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-topup.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <script type="application/ld+json" id="jsonld-product"></script>
+  <script type="application/ld+json" id="jsonld-breadcrumb"></script>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto max-w-3xl px-4 pt-24 pb-16">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 text-xs font-mono text-muted" aria-label="Breadcrumb" data-anim="fade-up">
+      <ol class="flex items-center gap-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <a href="index.html" class="hover:underline text-muted" itemprop="item"><span itemprop="name" data-i18n="breadcrumb_home">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <a href="browse.html" class="hover:underline text-muted" itemprop="item"><span itemprop="name" data-i18n="breadcrumb_store">Store</span></a>
+          <meta itemprop="position" content="2">
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <a href="browse.html?productType=TOP_UP" class="hover:underline text-muted" itemprop="item"><span itemprop="name" data-i18n="breadcrumb_topups">Top-Ups</span></a>
+          <meta itemprop="position" content="3">
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-1">
+          <span id="breadcrumb-title" style="color:var(--text)" aria-current="page" itemprop="name" data-i18n="loading_text">Loading...</span>
+          <meta itemprop="position" content="4">
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Product Header -->
+    <div class="flex items-center gap-4 mb-6" data-anim="fade-up" data-anim-delay="1">
+      <div class="w-20 h-20 sm:w-16 sm:h-16 rounded-xl overflow-hidden border-subtle flex-shrink-0">
+        <img id="tu-image" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' fill='%231a1a24'%3E%3Crect width='800' height='450'/%3E%3C/svg%3E" alt="Product image" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="badge badge--coral" data-i18n="badge_topup">TOP-UP</span>
+          <span id="tu-category" class="px-2 py-0.5 font-mono text-xs font-bold rounded" style="background:var(--cyan);color:var(--on-accent)">--</span>
+        </div>
+        <h1 id="tu-title" class="font-display text-xl font-bold" style="color:var(--text)" data-i18n="loading_text">Loading...</h1>
+        <div class="flex items-center gap-2 mt-1">
+          <i data-lucide="star" class="w-3 h-3 fill-current text-gold"></i>
+          <span id="tu-rating" class="font-mono text-xs text-muted">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stepper -->
+    <div class="stepper" id="topup-stepper" role="list" aria-label="Top-up steps" data-anim="fade-up" data-anim-delay="2">
+      <div class="stepper-step active" data-step="1" role="listitem" aria-current="step" aria-label="Step 1: Amount">
+        <div class="stepper-dot">1</div>
+        <span class="stepper-label" data-i18n="step_amount">Amount</span>
+      </div>
+      <div class="stepper-line" data-line="1" aria-hidden="true"></div>
+      <div class="stepper-step" data-step="2" role="listitem" aria-label="Step 2: Account">
+        <div class="stepper-dot">2</div>
+        <span class="stepper-label" data-i18n="step_account">Account</span>
+      </div>
+      <div class="stepper-line" data-line="2" aria-hidden="true"></div>
+      <div class="stepper-step" data-step="3" role="listitem" aria-label="Step 3: Confirm">
+        <div class="stepper-dot">3</div>
+        <span class="stepper-label" data-i18n="step_confirm">Confirm</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Select Amount -->
+    <div class="step-panel active" id="step-1" data-anim="slide-right" data-anim-delay="3">
+      <div class="rounded-xl p-6 bg-surface border-subtle">
+        <h2 class="font-display text-lg font-bold mb-4" style="color:var(--text)" data-i18n="step_select_amount">Select Top-Up Amount</h2>
+        <div id="tu-amounts" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-6" role="group" aria-label="Select top-up amount">
+          <!-- Filled by JS -->
+        </div>
+        <div class="flex justify-end">
+          <button id="btn-step1-next" class="topup-btn topup-btn--primary" disabled>
+            <span data-i18n="btn_continue">Continue</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Enter Account -->
+    <div class="step-panel" id="step-2">
+      <div class="rounded-xl p-6 bg-surface border-subtle">
+        <h2 class="font-display text-lg font-bold mb-2" style="color:var(--text)" data-i18n="step_enter_account">Enter Your Game Account</h2>
+        <p class="text-sm mb-5 text-muted" data-i18n="step_account_desc">Provide your in-game account details so we can deliver the top-up. Double-check for accuracy.</p>
+
+        <div class="space-y-4">
+          <div>
+            <label for="tu-player-id" class="block font-mono text-xs uppercase tracking-wider mb-1.5 text-cyan" data-i18n="label_player_id">Player ID / UID</label>
+            <input id="tu-player-id" type="text" class="topup-input" placeholder="e.g. 5123456789" data-i18n-placeholder="placeholder_player_id" autocomplete="off" required aria-describedby="tu-player-id-error">
+            <p id="tu-player-id-error" class="text-xs mt-1 hidden text-error" role="alert"></p>
+          </div>
+          <div>
+            <label class="block font-mono text-xs uppercase tracking-wider mb-1.5 text-cyan" data-i18n="label_ign_optional">In-Game Name (optional)</label>
+            <input id="tu-player-name" type="text" class="topup-input" placeholder="e.g. Player123" data-i18n-placeholder="placeholder_ign" autocomplete="off">
+          </div>
+          <div>
+            <label class="block font-mono text-xs uppercase tracking-wider mb-1.5 text-cyan" data-i18n="label_server_optional">Server / Region (optional)</label>
+            <input id="tu-server" type="text" class="topup-input" placeholder="e.g. Global, SEA, EU" data-i18n-placeholder="placeholder_server" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="flex flex-col-reverse sm:flex-row justify-between gap-3 mt-6">
+          <button id="btn-step2-back" class="topup-btn topup-btn--outline w-full sm:w-auto">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> <span data-i18n="btn_back">Back</span>
+          </button>
+          <button id="btn-step2-next" class="topup-btn topup-btn--primary w-full sm:w-auto" disabled>
+            <span data-i18n="btn_continue">Continue</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Confirm & Pay -->
+    <div class="step-panel" id="step-3">
+      <div class="rounded-xl p-6 bg-surface border-subtle">
+        <h2 class="font-display text-lg font-bold mb-4" style="color:var(--text)" data-i18n="confirm_topup_title">Confirm Your Top-Up</h2>
+
+        <div class="mb-5 border-subtle" style="border-radius:8px;padding:1rem">
+          <div class="confirm-row">
+            <span class="confirm-row__label" data-i18n="label_product">Product</span>
+            <span class="confirm-row__value" id="confirm-product">--</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row__label" data-i18n="label_amount">Amount</span>
+            <span class="confirm-row__value" id="confirm-amount">--</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row__label" data-i18n="label_player_id_field">Player ID</span>
+            <span class="confirm-row__value" id="confirm-player-id">--</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row__label" data-i18n="label_ign_field">In-Game Name</span>
+            <span class="confirm-row__value" id="confirm-player-name">--</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row__label" data-i18n="label_server_field">Server</span>
+            <span class="confirm-row__value" id="confirm-server">--</span>
+          </div>
+          <div class="confirm-row" style="border-bottom:none">
+            <span class="confirm-row__label" style="font-size:0.9375rem;font-weight:600;color:var(--text)" data-i18n="label_total">Total</span>
+            <span class="confirm-row__value text-success" style="font-size:1.125rem" id="confirm-total">-- DZD</span>
+          </div>
+        </div>
+
+        <!-- Trust -->
+        <div class="mb-5">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span data-i18n="trust_delivery_minutes">Delivery within minutes after payment</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span data-i18n="trust_secure_payments">Secure payments</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-i18n="trust_official_topup">Official top-up guaranteed</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col-reverse sm:flex-row justify-between gap-3">
+          <button id="btn-step3-back" class="topup-btn topup-btn--outline w-full sm:w-auto">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> <span data-i18n="btn_back">Back</span>
+          </button>
+          <button id="btn-add-to-cart" class="topup-btn topup-btn--primary flex items-center gap-2 w-full sm:w-auto">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i> <span data-i18n="btn_add_to_cart">ADD TO CART</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description (below stepper) -->
+    <div class="mt-8">
+      <h2 class="font-display text-lg font-bold mb-3" style="color:var(--text)" data-i18n="about_topup_title">About this top-up</h2>
+      <div id="tu-description" class="text-sm leading-relaxed text-muted">
+        Loading...
+      </div>
+    </div>
+
+    <!-- Mobile Sticky Bar -->
+    <div id="mobile-sticky-bar" class="mobile-sticky-bar" aria-label="Buy actions">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <span id="sticky-price" class="font-display text-xl font-bold text-success">-- DZD</span>
+        </div>
+        <button id="sticky-add-cart" class="btn btn-primary flex-1 max-w-[200px]" data-i18n="btn_add_to_cart">ADD TO CART</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/topup-detail.js"></script>
+</body>
+</html>

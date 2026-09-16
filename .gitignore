@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (not needed — static site)
+# tailwind.config.js is referenced at build time only
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Design specs and implementation plans live in the sizo-backend repo under
+# docs/front-end/. Built artifacts (assets/css/tailwind.css, sitemap.xml) are
+# committed intentionally, so there is nothing to ignore here.
+
+# Config / secrets
+.env
+.env.*

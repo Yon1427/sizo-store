@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Gift Cards, Top-Ups & Game Keys | SIZO Digital Store</title>
+  <meta name="description" content="Browse digital gift cards, top-ups & game keys across every platform. Filter by genre, price, platform, and region. Daily deals on AAA titles and hidden gems, delivered instantly by email.">
+  <link rel="canonical" href="https://sizo.uk/browse.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/browse.html?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/browse.html?lang=fr">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/browse.html?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/browse.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Browse Gift Cards, Top-Ups & Game Keys | SIZO Digital Store">
+  <meta property="og:description" content="Browse gift cards, mobile top-ups & game keys. Filter by type, platform, price. Instant delivery.">
+  <meta property="og:url" content="https://sizo.uk/browse.html">
+  <meta property="og:image" content="https://sizo.uk/assets/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_DZ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Browse Gift Cards, Top-Ups & Game Keys | SIZO">
+  <meta name="twitter:description" content="Browse gift cards, mobile top-ups & game keys. Instant delivery.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=1781826133">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Browse Games",
+    "description": "Browse digital gift cards, top-ups & game keys across PC, PlayStation, Xbox, and Nintendo at SIZO.",
+    "url": "https://sizo.uk/browse.html",
+    "isPartOf": { "@id": "https://sizo.uk/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sizo.uk/" },
+        { "@type": "ListItem", "position": 2, "name": "Browse Games", "item": "https://sizo.uk/browse.html" }
+      ]
+    }
+  }
+  </script>
+</head>
+<body class="font-body browse-page">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content">
+    <div id="search-status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+    <!-- Browse Header -->
+    <div class="browse-header">
+      <div class="browse-header__inner">
+        <div class="browse-header__left">
+          <div class="browse-header__meta">
+            <h1 class="browse-header__title" data-anim="fade-up" data-i18n="browse_title">Store</h1>
+            <span class="browse-header__count" data-anim="fade-up" data-anim-delay="1"><strong id="results-count">0</strong> products</span>
+          </div>
+          <p class="browse-header__scope" data-i18n="browse_scope">Gift cards, top-ups, game keys, and deals ready for instant checkout.</p>
+        </div>
+        <div class="browse-header__right">
+          <div class="search-wrap">
+            <span class="search-wrap__label" aria-hidden="true" data-i18n="aria_search_label">Search</span>
+            <label for="search-input" class="sr-only" data-i18n="sr_search">Search</label>
+            <input id="search-input" type="text" placeholder="Search products..." data-i18n-placeholder="browse_search_placeholder" class="search-input">
+          </div>
+          <label for="sort-select" class="sr-only" data-i18n="sr_sort">Sort</label>
+          <select id="sort-select" class="sort-select">
+            <option value="popular" data-i18n="sort_popular">Popular</option>
+            <option value="discount" data-i18n="sort_discount">Biggest Discount</option>
+            <option value="new" data-i18n="sort_new">Newest</option>
+            <option value="price-low" data-i18n="sort_price_low">Price: Low → High</option>
+            <option value="price-high" data-i18n="sort_price_high">Price: High → Low</option>
+            <option value="rating" data-i18n="sort_rating">Top Rated</option>
+          </select>
+          <button id="filter-toggle-btn" class="filter-toggle" aria-expanded="false" aria-controls="filter-drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="6" y2="6"/><line x1="7" x2="17" y1="12" y2="12"/><line x1="10" x2="14" y1="18" y2="18"/></svg>
+            Filters
+          </button>
+          <div class="view-toggles">
+            <button id="grid-view" aria-label="Grid view" data-i18n-aria-label="aria_grid_view" aria-pressed="true" class="view-btn active">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </button>
+            <button id="list-view" aria-label="List view" data-i18n-aria-label="aria_list_view" aria-pressed="false" class="view-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Tabs -->
+    <div class="type-tabs">
+      <nav class="type-tabs__inner" role="tablist" aria-label="Product type">
+        <button role="tab" class="type-tab active" data-quick-filter="all" aria-selected="true" tabindex="0" data-i18n="tab_all_products">All Products</button>
+        <button role="tab" class="type-tab" data-quick-filter="gift-cards" aria-selected="false" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Gift Cards
+        </button>
+        <button role="tab" class="type-tab" data-quick-filter="top-ups" aria-selected="false" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Top-Ups
+        </button>
+        <button role="tab" class="type-tab" data-quick-filter="game-keys" aria-selected="false" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>
+          Game Keys
+        </button>
+        <button role="tab" class="type-tab deal" data-quick-filter="deals" aria-selected="false" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/><circle cx="6" cy="6" r="1"/></svg>
+          Deals
+        </button>
+        <button role="tab" class="type-tab" data-quick-filter="under-1000" aria-selected="false" tabindex="-1" data-i18n="tab_under_1000">Under 1000 DZD</button>
+      </nav>
+    </div>
+
+    <!-- Active Filters Strip -->
+    <div class="container-main"><div id="active-filters" class="active-filters"></div></div>
+
+    <!-- Collapsible Filter Drawer -->
+    <div id="filter-drawer" class="filter-drawer" role="region" aria-label="Filters" data-anim="slide-left" data-anim-delay="1">
+      <div class="filter-drawer__inner">
+        <div class="filter-drawer__head">
+          <div>
+            <p class="filter-drawer__eyebrow" data-i18n="filter_refine_catalog">Refine Catalog</p>
+            <h2 class="filter-drawer__title" data-i18n="filter_filter_products">Filter products</h2>
+          </div>
+          <button id="clear-filters" class="clear-filters" data-i18n="btn_clear_all">CLEAR ALL</button>
+        </div>
+        <!-- Category -->
+        <div class="filter-group">
+          <p class="filter-group__label" data-i18n="filter_category">Category</p>
+          <div id="category-filters" class="filter-group__options">
+            <label class="filter-option"><input type="radio" name="category-filter" value="" checked> All Categories</label>
+          </div>
+        </div>
+        <!-- Platform -->
+        <div class="filter-group">
+          <p class="filter-group__label" data-i18n="filter_platform">Platform</p>
+          <div id="platform-filters" class="filter-group__options">
+            <!-- Fallback — replaced by API if available -->
+            <label class="filter-option"><input type="checkbox" name="platform-filter" value="Steam"> Steam</label>
+            <label class="filter-option"><input type="checkbox" name="platform-filter" value="PlayStation"> PlayStation</label>
+            <label class="filter-option"><input type="checkbox" name="platform-filter" value="Xbox"> Xbox</label>
+            <label class="filter-option"><input type="checkbox" name="platform-filter" value="Nintendo"> Nintendo</label>
+            <label class="filter-option"><input type="checkbox" name="platform-filter" value="PC"> PC</label>
+          </div>
+        </div>
+        <!-- Region -->
+        <div class="filter-group">
+          <p class="filter-group__label"><span data-i18n="product_region">Region</span> </p>
+          <div id="region-filters" class="filter-group__options">
+            <!-- Fallback — replaced by API if available -->
+            <label class="filter-option"><input type="checkbox" name="region-filter" value="GLOBAL"> GLOBAL</label>
+            <label class="filter-option"><input type="checkbox" name="region-filter" value="EU"> EU</label>
+            <label class="filter-option"><input type="checkbox" name="region-filter" value="US"> US</label>
+            <label class="filter-option"><input type="checkbox" name="region-filter" value="MENA"> MENA</label>
+          </div>
+        </div>
+        <!-- Price Range -->
+        <div class="filter-group">
+          <p class="filter-group__label" data-i18n="filter_price_range">Price Range</p>
+          <div class="filter-group__options" data-price-group>
+            <div class="price-inputs">
+              <label for="price-min" class="sr-only" data-i18n="label_min_price">Min price</label>
+              <input type="number" id="price-min" placeholder="0" class="price-input" min="0">
+              <span class="price-inputs__separator">-</span>
+              <label for="price-max" class="sr-only" data-i18n="label_max_price">Max price</label>
+              <input type="number" id="price-max" placeholder="10000" class="price-input" min="0">
+            </div>
+            <label for="price-range" class="sr-only" data-i18n="label_price_range">Price range</label>
+            <input type="range" id="price-range" class="price-slider" min="0" max="10000" value="10000">
+            <span class="price-slider-hint" data-i18n="price_slider_hint">Slide to cap max price</span>
+            <p id="price-error" class="price-error" role="alert" aria-live="assertive" hidden></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="container-main py-8 pb-16">
+      <div id="games-grid" class="browse-grid" aria-busy="true">
+        <div class="game-card game-card--skeleton" aria-hidden="true"><div class="card-image skeleton-surface"></div><div class="game-card__body"><div class="skeleton-line" style="width:55%;height:10px"></div><div class="skeleton-line" style="width:85%;height:14px;margin-top:10px"></div><div class="skeleton-line" style="width:70%;height:10px;margin-top:8px"></div><div class="skeleton-line" style="width:40%;height:16px;margin-top:14px"></div></div></div>
+        <div class="game-card game-card--skeleton" aria-hidden="true"><div class="card-image skeleton-surface"></div><div class="game-card__body"><div class="skeleton-line" style="width:55%;height:10px"></div><div class="skeleton-line" style="width:85%;height:14px;margin-top:10px"></div><div class="skeleton-line" style="width:70%;height:10px;margin-top:8px"></div><div class="skeleton-line" style="width:40%;height:16px;margin-top:14px"></div></div></div>
+        <div class="game-card game-card--skeleton" aria-hidden="true"><div class="card-image skeleton-surface"></div><div class="game-card__body"><div class="skeleton-line" style="width:55%;height:10px"></div><div class="skeleton-line" style="width:85%;height:14px;margin-top:10px"></div><div class="skeleton-line" style="width:70%;height:10px;margin-top:8px"></div><div class="skeleton-line" style="width:40%;height:16px;margin-top:14px"></div></div></div>
+        <div class="game-card game-card--skeleton" aria-hidden="true"><div class="card-image skeleton-surface"></div><div class="game-card__body"><div class="skeleton-line" style="width:55%;height:10px"></div><div class="skeleton-line" style="width:85%;height:14px;margin-top:10px"></div><div class="skeleton-line" style="width:70%;height:10px;margin-top:8px"></div><div class="skeleton-line" style="width:40%;height:16px;margin-top:14px"></div></div></div>
+        <div class="game-card game-card--skeleton" aria-hidden="true"><div class="card-image skeleton-surface"></div><div class="game-card__body"><div class="skeleton-line" style="width:55%;height:10px"></div><div class="skeleton-line" style="width:85%;height:14px;margin-top:10px"></div><div class="skeleton-line" style="width:70%;height:10px;margin-top:8px"></div><div class="skeleton-line" style="width:40%;height:16px;margin-top:14px"></div></div></div>
+      </div>
+      <div id="load-more" class="load-more hidden">
+        <button class="btn btn-primary" data-i18n="btn_load_more">LOAD MORE</button>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+  <script type="module" src="assets/js/pages/browse.js"></script>
+</body>
+</html>

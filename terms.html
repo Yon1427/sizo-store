@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | SIZO Digital Store</title>
+  <meta name="description" content="Terms and conditions for using SIZO Digital Store. Account rules, purchase terms, key delivery, and acceptable use policy.">
+  <link rel="canonical" href="https://sizo.uk/terms.html">
+  <link rel="alternate" hreflang="en" href="https://sizo.uk/terms.html?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://sizo.uk/terms.html?lang=fr">
+  <link rel="alternate" hreflang="ar" href="https://sizo.uk/terms.html?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://sizo.uk/terms.html">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta property="og:site_name" content="SIZO Digital Store">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Terms of Service | SIZO Digital Store">
+  <meta property="og:description" content="Terms and conditions for using SIZO.">
+  <meta property="og:url" content="https://sizo.uk/terms.html">
+  <meta property="og:image" content="https://sizo.uk/assets/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_DZ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms of Service | SIZO Digital Store">
+  <meta name="twitter:description" content="Terms and conditions for using SIZO.">
+  <meta name="twitter:image" content="https://sizo.uk/assets/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+  <style>
+    .legal-content h2 {  font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.25rem; color: inherit; }
+    .legal-content p { margin-bottom: 1rem; line-height: 1.7; }
+    .legal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .legal-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .legal-content a { color: var(--cyan); text-decoration: underline; }
+  </style>
+</head>
+<body class="font-body">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 pt-28 pb-16">
+    <div class="mb-8 border-b pb-8 border-[var(--border)]">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-cyan" data-anim="fade-up" data-i18n="legal_breadcrumb">Legal</p>
+      <h1 class="mt-2 font-display text-4xl font-black text-[var(--text-primary)]" data-anim="fade-up" data-anim-delay="1" data-i18n="terms_title">Terms of Service</h1>
+      <p class="mt-2 text-[var(--muted)]" data-anim="fade-up" data-anim-delay="2" data-i18n="terms_updated">Last updated: April 3, 2026</p>
+    </div>
+
+    <div class="legal-content text-[var(--text-primary)]">
+      <p data-i18n="terms_intro">Welcome to SIZO Digital Store. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully before making a purchase.</p>
+
+      <h2 data-i18n="terms_s1_title">1. Acceptance of Terms</h2>
+      <p data-i18n="terms_s1_desc">By creating an account, making a purchase, or using any part of the SIZO platform, you acknowledge that you have read, understood, and agree to these Terms of Service. If you do not agree with any part of these terms, please do not use our services.</p>
+
+      <h2 data-i18n="terms_s2_title">2. Eligibility</h2>
+      <p data-i18n="terms_s2_desc">You must be at least 18 years old or have reached the age of majority in your jurisdiction to use our services. By using SIZO, you represent and warrant that you meet these eligibility requirements.</p>
+
+      <h2 data-i18n="terms_s3_title">3. Account Registration</h2>
+      <p data-i18n="terms_s3_desc">To access certain features, you may need to create an account. You agree to:</p>
+      <ul>
+        <li data-i18n="terms_s3_l1">Provide accurate and complete information during registration</li>
+        <li data-i18n="terms_s3_l2">Maintain the security of your account credentials</li>
+        <li data-i18n="terms_s3_l3">Promptly update your account information if changes occur</li>
+        <li data-i18n="terms_s3_l4">Accept responsibility for all activities under your account</li>
+      </ul>
+
+      <h2 data-i18n="terms_s4_title">4. Digital Products</h2>
+      <p data-i18n="terms_s4_desc">SIZO sells digital products including digital products, gift cards, and in-game currency. All sales are final once the digital product has been delivered. You acknowledge that:</p>
+      <ul>
+        <li data-i18n="terms_s4_l1">Digital products are delivered instantly or within 24 hours</li>
+        <li data-i18n="terms_s4_l2">Product keys are unique and cannot be duplicated</li>
+        <li data-i18n="terms_s4_l3">Regional restrictions may apply to certain products</li>
+        <li data-i18n="terms_s4_l4">You are responsible for verifying compatibility before purchase</li>
+      </ul>
+
+      <h2 data-i18n="terms_s5_title">5. Payment Terms</h2>
+      <p data-i18n="terms_s5_desc">We accept payment via Chargily Pay (CIB Card and Edahabia) for Algerian customers. All prices are listed in Algerian Dinar (DZD) and include applicable taxes. You agree to:</p>
+      <ul>
+        <li data-i18n="terms_s5_l1">Provide valid payment information</li>
+        <li data-i18n="terms_s5_l2">Authorize us to charge the specified amount</li>
+        <li data-i18n="terms_s5_l3">Understand that refunds are subject to our Refund Policy</li>
+      </ul>
+
+      <h2 data-i18n="terms_s6_title">6. Prohibited Activities</h2>
+      <p data-i18n="terms_s6_desc">You agree not to engage in any of the following prohibited activities:</p>
+      <ul>
+        <li data-i18n="terms_s6_l1">Fraudulent transactions or payment disputes without cause</li>
+        <li data-i18n="terms_s6_l2">Reselling products without authorization</li>
+        <li data-i18n="terms_s6_l3">Attempting to circumvent security measures</li>
+        <li data-i18n="terms_s6_l4">Using automated systems to make purchases</li>
+        <li data-i18n="terms_s6_l5">Sharing account credentials with third parties</li>
+      </ul>
+
+      <h2 data-i18n="terms_s7_title">7. Intellectual Property</h2>
+      <p data-i18n="terms_s7_desc">All content on SIZO, including logos, designs, text, and software, is the property of SIZO or its licensors and is protected by copyright and other intellectual property laws. You may not reproduce, modify, or distribute our content without written permission.</p>
+
+      <h2 data-i18n="terms_s8_title">8. Limitation of Liability</h2>
+      <p data-i18n="terms_s8_desc">To the extent permitted by law, SIZO shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services. Our total liability shall not exceed the amount you paid for the specific product giving rise to the claim.</p>
+
+      <h2 data-i18n="terms_s9_title">9. Changes to Terms</h2>
+      <p data-i18n="terms_s9_desc">We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Your continued use of our services after changes constitutes acceptance of the modified terms.</p>
+
+      <h2 data-i18n="terms_s10_title">10. Contact Information</h2>
+      <p data-i18n="terms_s10_desc">If you have questions about these Terms of Service, please contact us at <a href="mailto:support@sizo.uk">support@sizo.uk</a>.</p>
+    </div>
+
+    <div class="mt-12 flex flex-wrap gap-4 border-t pt-8 border-[var(--border)]">
+      <a href="privacy.html" class="btn-cyber border px-6 py-3 font-display font-bold transition-colors hover:border-cyan hover:text-cyan text-[var(--text-primary)] border-[var(--border)]" data-i18n="legal_link_privacy">Privacy Policy</a>
+      <a href="refund.html" class="btn-cyber border px-6 py-3 font-display font-bold transition-colors hover:border-cyan hover:text-cyan text-[var(--text-primary)] border-[var(--border)]" data-i18n="legal_link_refund">Refund Policy</a>
+      <a href="faq.html" class="btn-cyber border px-6 py-3 font-display font-bold transition-colors hover:border-cyan hover:text-cyan text-[var(--text-primary)] border-[var(--border)]" data-i18n="legal_link_faq">FAQ</a>
+      <a href="support.html" class="btn-cyber border px-6 py-3 font-display font-bold transition-colors hover:border-cyan hover:text-cyan text-[var(--text-primary)] border-[var(--border)]" data-i18n="legal_link_support">Support</a>
+    </div>
+  </main>
+
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    var storedLang = localStorage.getItem('sizo-lang');
+    var lang = (urlLang && ['en','fr','ar'].includes(urlLang)) ? urlLang : (storedLang && ['en','fr','ar'].includes(storedLang) ? storedLang : 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('sizo-theme')||'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | SIZO Digital Store</title>
+  <meta name="description" content="Create a SIZO account to buy digital gift cards, top-ups & game keys, track orders, and manage your library.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script defer src="assets/js/vendor/lucide-0.475.0.min.js"></script>
+
+  <!-- Shared CSS (includes design system variables + focus states) -->
+
+  <!-- Custom page styles -->
+</head>
+<body class="font-body min-h-screen">
+  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
+  <header id="navbar-mount"></header>
+
+  <main id="main-content" class="mx-auto flex min-h-screen max-w-lg items-center px-4 py-10 pt-28">
+    <div class="w-full border rounded-2xl" style="border-color:var(--border);background:var(--surface);padding:2rem" data-anim="slide-right" data-anim-delay="1">
+      <h1 class="font-display text-3xl font-black text-[var(--text-primary)]" data-anim="fade-up" data-i18n="register_title" data-i18n="btn_create_account">CREATE ACCOUNT</h1>
+      <p class="mt-2" style="color:var(--muted)" data-anim="fade-up" data-anim-delay="1">Join SIZO <span data-i18n="register_agree_and">and</span> start buying digital gift cards, top-ups & more.</p>
+
+      <form id="register-form" class="mt-6 space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="register-first-name" class="required" data-i18n="field_first_name_label">First Name</label>
+            <input type="text" id="register-first-name" name="firstName" required autocomplete="given-name" class="input-cyber" placeholder="John" data-i18n-placeholder="placeholder_first_name">
+            <span id="register-first-name-error" class="field-error" hidden></span>
+          </div>
+          <div>
+            <label for="register-last-name" class="required" data-i18n="field_last_name_label">Last Name</label>
+            <input type="text" id="register-last-name" name="lastName" required autocomplete="family-name" class="input-cyber" placeholder="Doe" data-i18n-placeholder="placeholder_last_name">
+            <span id="register-last-name-error" class="field-error" hidden></span>
+          </div>
+        </div>
+        <div>
+          <label for="register-email" class="required" data-i18n="field_email_label">Email</label>
+          <input type="email" id="register-email" name="email" required autocomplete="email" class="input-cyber" placeholder="you@example.com" data-i18n-placeholder="placeholder_email">
+          <span id="register-email-error" class="field-error" hidden></span>
+        </div>
+
+        <div>
+          <label for="password" class="required" data-i18n="field_password_label">Password</label>
+          <div class="relative">
+            <input type="password" id="password" name="password" required autocomplete="new-password" class="input-cyber pr-12" placeholder="••••••••" data-i18n-placeholder="placeholder_password">
+            <button type="button" class="password-toggle toggle-password" aria-label="Toggle password visibility" data-i18n-aria-label="aria_toggle_password">
+              <i data-lucide="eye" class="h-5 w-5"></i>
+            </button>
+          </div>
+          <div id="password-strength-container" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" aria-label="Password strength" class="mt-2 h-1 overflow-hidden rounded" style="background:var(--border)">
+            <div id="password-strength" class="password-strength w-0" style="background:var(--error)"></div>
+          </div>
+          <p id="password-hint" class="mt-1 font-mono text-xs" style="color:var(--muted)" data-i18n="password_hint_min">Password must be at least 8 characters</p>
+          <span id="password-error" class="field-error" hidden></span>
+        </div>
+
+        <div>
+          <label for="register-password-confirm" class="required" data-i18n="field_confirm_password_label">Confirm Password</label>
+          <input type="password" id="register-password-confirm" name="confirmPassword" required autocomplete="new-password" class="input-cyber" placeholder="••••••••" data-i18n-placeholder="placeholder_password">
+          <span id="register-password-confirm-error" class="field-error" hidden></span>
+        </div>
+
+        <label class="flex items-start gap-2 text-sm" style="color:var(--muted)">
+          <input type="checkbox" required class="checkbox-cyber">
+          <span data-i18n="register_agree_text">I agree to the</span> <a href="terms.html" style="color:var(--accent)" data-i18n="register_terms_link">terms</a> <span data-i18n="register_agree_and">and</span> <a href="privacy.html" style="color:var(--accent)" data-i18n="register_privacy_link">privacy policy</a>.
+        </label>
+
+        <div id="register-turnstile" class="hidden"></div>
+        <button type="submit" class="btn-cyber w-full bg-cyan py-3 font-display font-bold text-[var(--on-accent)]" data-anim="scale-in" data-anim-delay="2" data-i18n="btn_create_account">CREATE ACCOUNT</button>
+      </form>
+
+      <p class="mt-6 text-center text-sm" style="color:var(--muted)"><span data-i18n="register_has_account">Already have an account?</span> <a href="login.html" style="color:var(--accent)" data-i18n="register_sign_in">Sign in</a></p>
+      <p class="mt-2 text-center text-sm"><a href="index.html" style="color:var(--muted)" class="hover:text-cyan transition-colors" data-i18n="back_to_home">Back to Home</a></p>
+    </div>
+  </main>
+
+  <!-- Shared Components (auto-initializes theme, logo, mobile menu) -->
+  <footer id="footer-mount"></footer>
+
+  <script type="module" src="assets/js/core/components.js"></script>
+
+  <!-- Page-specific script -->
+  <script type="module" src="assets/js/pages/register.js?v=20260602-auth-fix"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# ── SIZO STORE (Pages) ──────────────────────────────────
+# Cloudflare Pages config for sizo.uk — Advanced mode (_worker.js)
+# _worker.js proxies /api/*, /health, /_email/send to the
+# sizo-api container worker via this Service Binding (env.API).
+# ────────────────────────────────────────────────────────
+
+name = "sizo-store"
+compatibility_date = "2026-04-20"
+pages_build_output_dir = "."
+
+# Pages Function → Worker Service Binding
+# _worker.js calls env.API.fetch() for proxied paths.
+[[services]]
+binding = "API"
+service = "sizo-api"
+environment = "production"
