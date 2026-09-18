@@ -1,4 +1,4 @@
-import { buildApiPath, buildAuthPath } from '../core/config.js';
+import { buildApiPath } from '../core/config.js';
 import { mergeGuestCartIntoAccount } from '../core/cart-helpers.js';
 import { apiPost } from '../core/http.js';
 import { DEFAULT_PUBLIC_REDIRECT, sanitizeNextPath } from '../core/navigation.js';
@@ -50,7 +50,10 @@ const bindGoogleButton = () => {
   if (!googleBtn) return;
 
   googleBtn.addEventListener('click', () => {
-    const apiBase = buildAuthPath('/auth/google');
+    // Same-origin through the Pages proxy, so the callback can set the session
+    // cookie directly. `next` rides along so the backend can send the browser
+    // back to where it started.
+    const apiBase = buildApiPath('/auth/google');
     const next = getNextUrl();
     const separator = apiBase.includes('?') ? '&' : '?';
     const redirectUrl = next ? `${apiBase}${separator}next=${encodeURIComponent(next)}` : apiBase;

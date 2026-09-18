@@ -4,18 +4,29 @@ function isLoopbackHost(hostname) {
     hostname === '::1';
 }
 
+/**
+ * Local development API base.
+ *
+ * The backend runs on 9100 (`PORT` in `apps/backend/.env`) and lists
+ * `localhost:5500` in STORE_CORS/AUTH_CORS, which is the port this store is
+ * served from locally. The previous value here was 3000, a legacy service that
+ * is no longer part of the stack, so every local request failed CORS before it
+ * reached the API.
+ */
+const LOCAL_API_URL = 'http://localhost:9100/api';
+
 const resolveDefaultApiUrl = () => {
   if (typeof window === 'undefined') {
-    return 'http://localhost:3000/api';
+    return LOCAL_API_URL;
   }
 
-  const { protocol, hostname, port } = window.location;
+  const { protocol, hostname } = window.location;
   if (!/^https?:$/.test(protocol)) {
-    return 'http://localhost:3000/api';
+    return LOCAL_API_URL;
   }
 
   if (isLoopbackHost(hostname)) {
-    return 'http://localhost:3000/api';
+    return LOCAL_API_URL;
   }
 
   // Production: use relative path so requests go through the Pages Function
@@ -79,16 +90,13 @@ export const buildApiPath = (path) => {
   return `${getApiUrl()}${sanitized}`;
 };
 
-// OAuth flows require the browser to navigate directly to the auth service.
-// In production, this is auth.sizo.uk (bypasses the Pages proxy which cannot
-// pass Google's 302 redirect through to the browser).
-const getAuthServiceUrl = () => {
-  if (typeof window === 'undefined') return 'http://localhost:3000/api';
-  if (isLoopbackHost(window.location.hostname)) return 'http://localhost:3000/api';
-  return 'https://auth.sizo.uk/api';
-};
-
-export const buildAuthPath = (path) => {
-  const sanitized = path.startsWith('/') ? path : `/${path}`;
-  return `${getAuthServiceUrl()}${sanitized}`;
-};
+// OAuth flows used to navigate to a separate auth host (auth.sizo.uk), because
+// the Pages proxy was assumed unable to pass Google's redirect through.
+//
+// That is no longer true, and the separate host was actively broken: the proxy
+// in `_worker.js` forwards `/api/*` to the backend via a Service Binding, so
+// `/api/auth/google` and its callback are reachable on this very origin. Keeping
+// the flow same-origin is also what lets the callback set the session cookie
+// directly, and it removes a second deployment to keep in step.
+//
+// Google is therefore started with `buildApiPath('/auth/google')`.
