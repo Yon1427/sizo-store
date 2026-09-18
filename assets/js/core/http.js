@@ -48,13 +48,24 @@ export const apiRequest = async (path, options = {}) => {
     if (legacyToken) {
       requestHeaders.Authorization = `Bearer ${legacyToken}`;
     }
+  }
 
-    // CSRF protection: include the synchroniser token on mutating requests.
-    if (MUTATING_METHODS.has(method)) {
-      const csrf = getCsrfToken();
-      if (csrf) {
-        requestHeaders['X-CSRF-Token'] = csrf;
-      }
+  // CSRF protection: echo the synchroniser token on every mutating request,
+  // not only the ones flagged `auth`.
+  //
+  // The cookie is attached by the browser on *all* requests here
+  // (`credentials: 'include'`), so a public endpoint called while signed in is
+  // still an authenticated request as far as the server is concerned — and the
+  // server enforces the double-submit check whenever a session carries an auth
+  // context. `/auth/verify-email/confirm` is the trap: a customer who registers
+  // and then clicks the link in their inbox is still signed in in that browser,
+  // so omitting the header produced a 403 on a flow that has nothing to do with
+  // being logged in. Sending a valid token when one is stored is always correct
+  // and is ignored by endpoints that do not check it.
+  if (MUTATING_METHODS.has(method)) {
+    const csrf = getCsrfToken();
+    if (csrf) {
+      requestHeaders['X-CSRF-Token'] = csrf;
     }
   }
 
