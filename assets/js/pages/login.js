@@ -167,6 +167,7 @@ const parseUserPayload = (raw) => {
 const handleAuthQuery = () => {
   const params = new URLSearchParams(window.location.search);
   const authError = params.get('error');
+  const authReason = params.get('reason');
   const token = params.get('token');
   const userParam = params.get('user');
 
@@ -187,7 +188,14 @@ const handleAuthQuery = () => {
   }
 
   if (authError === 'auth_failed') {
-    showToast(t('toast_google_failed', 'Google sign-in failed. Please try again.'), 'error');
+    // The backend reports why: an account that already exists for the Google
+    // address needs a different message from a generic failure, because
+    // retrying with Google will never work — the customer has to sign in with
+    // their password first.
+    const reason = authReason === 'CONFLICT'
+      ? t('toast_google_account_exists', 'An account already exists for this email. Sign in with your password, then connect Google from your account settings.')
+      : t('toast_google_failed', 'Google sign-in failed. Please try again.');
+    showToast(reason, 'error');
   }
 
   return false;
