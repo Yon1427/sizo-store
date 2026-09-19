@@ -1,16 +1,20 @@
 # ── SIZO STORE (Pages) ──────────────────────────────────
 # Cloudflare Pages config for sizo.uk — Advanced mode (_worker.js)
-# _worker.js proxies /api/*, /health, /_email/send to the
-# sizo-api container worker via this Service Binding (env.API).
+#
+# _worker.js proxies /api/*, /health, /health/db and /_email/send to the backend
+# by fetching API_ORIGIN over the network.
+#
+# API_ORIGIN is a Pages environment variable, set in the Cloudflare dashboard
+# (Settings → Environment variables) for BOTH production and preview:
+#
+#   API_ORIGIN = https://api.sizo.uk
+#
+# It is deliberately NOT in this file. A service binding was tried first and could
+# never work: a Cloudflare Service Binding can only target another Cloudflare
+# Worker, while the backend runs as a Railway container. The previous [[services]]
+# block also named a Worker (`sizo-api`) that nothing in this repository defined.
 # ────────────────────────────────────────────────────────
 
 name = "sizo-store"
 compatibility_date = "2026-04-20"
 pages_build_output_dir = "."
-
-# Pages Function → Worker Service Binding
-# _worker.js calls env.API.fetch() for proxied paths.
-[[services]]
-binding = "API"
-service = "sizo-api"
-environment = "production"

@@ -29,8 +29,10 @@ const resolveDefaultApiUrl = () => {
     return LOCAL_API_URL;
   }
 
-  // Production: use relative path so requests go through the Pages Function
-  // proxy (Service Binding) instead of hitting the now-private api.sizo.uk.
+  // Production: relative path, so requests go through the Pages Function in
+  // `_worker.js`, which proxies them to API_ORIGIN (the Railway backend). Keeping
+  // the API same-origin is what lets the session cookie be first-party; pointing
+  // this at api.sizo.uk directly would make it third-party.
   return '/api';
 };
 
@@ -94,9 +96,9 @@ export const buildApiPath = (path) => {
 // the Pages proxy was assumed unable to pass Google's redirect through.
 //
 // That is no longer true, and the separate host was actively broken: the proxy
-// in `_worker.js` forwards `/api/*` to the backend via a Service Binding, so
-// `/api/auth/google` and its callback are reachable on this very origin. Keeping
-// the flow same-origin is also what lets the callback set the session cookie
-// directly, and it removes a second deployment to keep in step.
+// in `_worker.js` forwards `/api/*` to the backend, so `/api/auth/google` and its
+// callback are reachable on this very origin. Keeping the flow same-origin is also
+// what lets the callback set the session cookie directly, and it removes a second
+// deployment to keep in step.
 //
 // Google is therefore started with `buildApiPath('/auth/google')`.
