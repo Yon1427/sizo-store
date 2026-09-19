@@ -17,6 +17,9 @@ const TAX_RATE = 0;
 
 let isUpdatingCart = false;
 let currentPromo = null;
+// Money as Medusa computed it, set by fetchCart for a signed-in customer. Null
+// for a guest, whose cart only exists in localStorage.
+let serverTotals = null;
 
 const cartItemsRoot = document.getElementById('cart-items');
 const emptyState = document.getElementById('empty-cart');
@@ -33,6 +36,35 @@ const cartStatusEl = document.getElementById('cart-status');
 const getItemUnitPrice = (item) => Number(item?.variant?.price ?? item?.game?.price ?? 0);
 const getItemOriginalPrice = (item) => Number(item?.variant?.originalPrice ?? item?.game?.originalPrice ?? getItemUnitPrice(item));
 
+/**
+ * The coupon discount as a preview, off a set of already-computed totals.
+ *
+ * Shared by both paths so the server-total cart and the guest cart discount a
+ * code identically. `PERCENTAGE` applies to the post-sale subtotal (not the
+ * original price, which would discount money the customer never paid and could
+ * exceed the order), then respects the cap when one is set. `FIXED` cannot take
+ * the total below zero.
+ *
+ * This is display only: nothing here is ever sent to the server as a discount,
+ * and checkout recomputes it from the promotion itself.
+ */
+const applyCouponPreview = (base, promo) => {
+  const taxable = Math.max(base.subtotal - base.discount, 0);
+  let couponDiscount = 0;
+
+  if (promo.type === 'PERCENTAGE') {
+    couponDiscount = taxable * (promo.value / 100);
+    if (promo.maxDiscount > 0) couponDiscount = Math.min(couponDiscount, promo.maxDiscount);
+  } else {
+    couponDiscount = Math.min(promo.value, taxable);
+  }
+
+  const discount = base.discount + couponDiscount;
+  const tax = (base.subtotal - discount) * TAX_RATE;
+
+  return { discount, tax, total: base.subtotal - discount + tax };
+};
+
 const computeTotals = (items) => {
   const subtotal = items.reduce((sum, item) => sum + getItemUnitPrice(item) * item.quantity, 0);
   const storeDiscount = items.reduce((sum, item) => {
@@ -44,26 +76,32 @@ const computeTotals = (items) => {
     return sum;
   }, 0);
 
-  // Apply coupon discount if active
-  let couponDiscount = 0;
-  if (currentPromo) {
-    if (currentPromo.type === 'PERCENTAGE') {
-      couponDiscount = (subtotal - storeDiscount) * (currentPromo.value / 100);
-      if (currentPromo.maxDiscount > 0) couponDiscount = Math.min(couponDiscount, currentPromo.maxDiscount);
-    } else {
-      couponDiscount = Math.min(currentPromo.value, subtotal - storeDiscount);
-    }
-  }
+  const base = {
+    subtotal,
+    discount: storeDiscount,
+    tax: 0,
+    total: subtotal - storeDiscount,
+  };
 
-  const totalDiscount = storeDiscount + couponDiscount;
-  const tax = (subtotal - totalDiscount) * TAX_RATE;
-  const total = subtotal - totalDiscount + tax;
-
-  return { subtotal, discount: totalDiscount, tax, total };
+  return currentPromo ? { ...base, ...applyCouponPreview(base, currentPromo) } : base;
 };
 
 const renderTotals = (items) => {
-  const totals = computeTotals(items);
+  /**
+   * Medusa's arithmetic wins whenever there is a server cart.
+   *
+   * The local path exists only for the guest cart, where there is no server
+   * row. It reproduces the same shapes: the store-wide sale shows up as the
+   * difference between an item's original and current price, and the coupon is
+   * a preview off the top — a preview because applying it is checkout's job.
+   */
+  let totals = serverTotals;
+
+  if (!totals) {
+    totals = computeTotals(items);
+  } else if (currentPromo) {
+    totals = { ...totals, ...applyCouponPreview(totals, currentPromo) };
+  }
 
   if (subtotalNode) {
     subtotalNode.textContent = formatMoney(totals.subtotal);
@@ -178,9 +216,22 @@ const fetchCart = async () => {
   }
 
   let items = [];
+  // Totals come from Medusa when there is a server cart. The guest path has no
+  // server cart at all, so it stays computed locally — that is the only case
+  // where computeTotals runs.
+  serverTotals = null;
+
   if (isAuthenticated()) {
     const response = await apiGet('/cart', true);
     items = Array.isArray(response?.data?.items) ? response.data.items : [];
+    serverTotals = response?.data
+      ? {
+          subtotal: Number(response.data.subtotal ?? 0),
+          discount: Number(response.data.discountTotal ?? 0),
+          tax: Number(response.data.taxTotal ?? 0),
+          total: Number(response.data.total ?? 0),
+        }
+      : null;
   } else {
     items = getGuestCartItems();
   }

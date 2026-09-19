@@ -370,7 +370,7 @@ const renderStructuredData = (game) => {
     url,
     priceCurrency: 'DZD',
     price: price.toFixed(2),
-    availability: Number(game.stock || 0) > 0
+    availability: Number(game.stockCount || 0) > 0
       ? 'https://schema.org/InStock'
       : 'https://schema.org/OutOfStock',
     itemCondition: 'https://schema.org/NewCondition',
@@ -455,7 +455,10 @@ const renderVariantPicker = (game) => {
     .join('');
 
   if (variantStockNote) {
-    const stock = Number(selectedVariant?.stock || 0);
+    // `stockCount` is the field the catalogue and browse.js already use; stock
+    // is carried at product level in metadata, so a variant has no count of its
+    // own (the sync sets manage_inventory: false).
+    const stock = Number(currentGame?.stockCount || 0);
     variantStockNote.textContent = stock > 0 ? `${stock} ${t('variant_keys_ready', 'keys ready')}` : t('variant_awaiting', 'Awaiting fulfillment');
   }
 };
